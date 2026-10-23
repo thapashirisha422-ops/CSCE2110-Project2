@@ -1,0 +1,36 @@
+  CSCE 2110 - Project 2
+  Smart Campus Navigation and Facility Analytics System
+
+  DESIGN DOCUMENT - MILESTONE 1
+
+  1. PROJECT OVERVIEW
+  This project is a C++ console application that uses a custom hash table, campus graph, and general tree to manage campus information.
+
+  2. FACILITY DATABASE AND HASH TABLE
+  The system will store facilities and support searching by facility ID.
+
+  Hash function: To be determined 
+  Hash table capacity: To be determined
+  Collision strategy: To be determined
+  Collision counting method: To be determined
+
+  3. CAMPUS GRAPH
+  The system will represent campus buildings as vertices and walkways as undirected edges.
+
+  Graph representation: To be determined
+
+  Breadth-First Search (BFS) will use a queue and a visited structure to find reachable buildings and their distances.
+
+  4. DEPARTMENT TREE
+  The system will use a general tree to represent academic departments.
+
+  Each department can have multiple children. The program will support adding departments, searching, and preorder traversal.
+
+  5. CODE ORGANIZATION
+  src/- Implementation files
+  include/ - Header files
+  data/ - Instructor-provided input files
+  testdata/ - Additional testing files
+
+  DEVELOPMENT STATUS
+  This document contains the initial project design outline. Implementation choices, formulas, justifications, and module details will be added during development.
