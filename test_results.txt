@@ -1,0 +1,35 @@
+CSCE 2110 - Project 2
+Smart Campus Navigation and Facility Analytics System
+
+TEST RESULTS - MILESTONE 1
+
+Test 1: Load Valid Data Files
+Description: Verify that all four input files load successfully.
+Input: Instructor- provided data files
+Expected: Files load and correct summaries appear.
+Actual: Not tested yet
+Result: Pending
+
+Test 2: Search Facility by ID
+Description: Search for an existing facility.
+Input: F004
+Expected: Computer Lab A is found.
+Actual: Not tested yet
+Result: Pending
+
+Test 3: BFS Reachability
+Description: Find buildings reachable from Library.
+Input: Library
+Expected: 6 of 7 buildings are reachable.
+Actual: Not tested yet
+Result: Pending
+
+Test 4: Invalid Menu Input
+Description: Enter a menu option that does not exist.
+Input: 99
+Expected: Error message and return to menu
+Actual: Not tested yet
+Result: Pending
+
+NOTE:
+These are preliminary test cases. Additional required tests will be added. Actual results and Pass/ Fail statuses will be recorded after the program is implemented. 
