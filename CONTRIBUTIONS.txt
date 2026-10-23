@@ -1,0 +1,21 @@
+CSCE 2110 - Project 2
+Smart Campus Navigation and Facility Analytics System
+
+   Team Members:
+1. Aanchal Khadka
+2. Leah Rodriguez
+3. Shirisha Thapa
+
+Individual Responsibilites:
+Member A: Not assigned yet
+Member B : Not assigned yet
+Member C: Not assigned yet
+
+Planned Shared Responsibilities:
+- File loading and validation
+- Main menu integration
+- Testing and debugging
+- Documentation
+- GitHub collaboration
+
+Note: Individual responsibilites and contributions will be updated as the project progresses.
