@@ -172,10 +172,16 @@ int main(int argc, char* argv[]){
         string parentName;
         getline(cin, parentName);
         if(trimInput(parentName) == ""){
-          cout << "Error parent department name cannot be blank.\n";
+          cout << "Error: Parent department name cannot be blank.\n";
         }else{
-          if(!departmentTree.addDepartment(trimInput(departmentName), trimInput(parentName))){
-  cout << "Error: Department already exists or parent not found.\n";
+          if (departmentTree.departmentExists(trimInput(departmentName))) {
+    cout << "Error: Department already exists.\n";
+}
+else if (!departmentTree.departmentExists(trimInput(parentName))) {
+    cout << "Error: Parent department not found.\n";
+}
+else {
+    departmentTree.addDepartment(trimInput(departmentName), trimInput(parentName));
 }
         }
       }
