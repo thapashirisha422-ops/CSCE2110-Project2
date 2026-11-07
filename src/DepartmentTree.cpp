@@ -1,3 +1,7 @@
+// File: DepartmentTree.cpp
+// Author: Aanchal Khadka
+// Purpose: Implements the department tree and traversals.
+
 #include "DepartmentTree.h"
 #include <iostream>
 #include <algorithm>
@@ -8,12 +12,12 @@ using namespace std;
 
 //Remove spaces from the beginning and end 
 static string trimName(const string& text) {
-    size_t start = text.find_first_not_of("\t\r\n");
+    size_t start = text.find_first_not_of(" \t\r\n");
 
     if (start == string::npos) {
         return "";
     }
-    size_t end = text.find_last_not_of("\t\r\n");
+    size_t end = text.find_last_not_of(" \t\r\n");
     return text.substr(start, end - start + 1);
 }
 // Convert a department name to lowercase
@@ -140,7 +144,7 @@ void DepartmentTree::searchDepartment(
     cout << "Department: " << found->departmentName << endl;
 
     if (found->parent == nullptr) {
-        cout << "Parent: NONE" <<endl;
+        cout << "Parent: None" <<endl;
     } else {
         cout << "Parent: "
         << found->parent->departmentName << endl;
