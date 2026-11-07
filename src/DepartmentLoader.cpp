@@ -94,16 +94,25 @@ string line;
             continue;
         }
 
-        // Add department; rejects duplicates and unknown parents
-        if (!tree.addDepartment(departmentName, parentName)) {
-            cout << "Warning: " << path
-                 << ", line " << lineNumber
-                 << ": Duplicate department or invalid parent: "
-                 << departmentName << endl;
+        // Add department and show the reason if it fails
+if (!tree.addDepartment(departmentName, parentName)) {
+    cout << "Warning: " << path
+         << ", line " << lineNumber << ": ";
 
-            stats.rejected++;
-            continue;
-        }
+    if (tree.departmentExists(departmentName)) {
+        cout << "Duplicate department: " << departmentName;
+    }
+    else if (lowerField(parentName) == "none") {
+        cout << "Another root is not allowed: " << departmentName;
+    }
+    else {
+        cout << "Parent department not found: " << parentName;
+    }
+
+    cout << endl;
+    stats.rejected++;
+    continue;
+}
 
         stats.accepted++;
     }
