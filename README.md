@@ -1,36 +1,50 @@
 # CSCE2110-Project2
+
 Smart Campus Navigation and Facility Analytics System
 
 ## Course
-CSCE 2110 - Project 1
+CSCE 2110 - Project 2
 
-## PROJECT DESCRIPTION
+## Project Description
 This project is a C++ console application that manages campus facilities, building connections, and academic department information.
 
 The system uses:
--A custom hash table for facility lookup
--A graph and BFS for campus navigation
--A general tree for department hierarchy
+- A custom hash table for facility lookup
+- A graph and BFS for campus navigation
+- A general tree for department hierarchy
 
-## PROJECT STRUCTURE
-src/             - C++ source files
-include/         - Header files
-data/            - Instructor-provided data files
-testdata/        - Additional test files
+## Project Structure
+- `src/` - C++ source files
+- `include/` - Header files
+- `data/` - Instructor-provided data files
+- `testdata/` - Additional test files
 
-## TEAM MEMBERS 
-Aanchal Khadka
-Leah Rodriguez
-Shirisha Thapa
+## Team Members
+- Aanchal Khadka
+- Leah Rodriguez
+- Shirisha Thapa
 
-## CURRENT STATUS
-Initial repository setup completed.
-Implementation and testing are in progress.
+## Current Status
+Milestone 1 features have been implemented and tested.
 
-## BUILD AND RUN
-The current starter program can be compiled on a Linux system using:
+## Build and Run
+Open a Linux terminal in the main project folder.
 
-g++ src/main.cpp   -o campus
-./campus
+Compile the program using:
 
-The bill commands and instructions will be updated when the remaining modules are integrated.
+`g++ -std=c++17 -Iinclude src/*.cpp -o campus`
+
+Run the program using:
+
+`./campus`
+
+The program loads the four files in the `data/` folder by default.
+
+To run the additional collision test:
+
+`./campus testdata/collision`
+
+## Program Menu
+Options 1 through 9 provide the Milestone 1 features.
+
+Option 10 exits the program.
