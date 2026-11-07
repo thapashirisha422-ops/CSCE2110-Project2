@@ -4,32 +4,305 @@ Smart Campus Navigation and Facility Analytics System
 TEST RESULTS - MILESTONE 1
 
 Test 1: Load Valid Data Files
-Description: Verify that all four input files load successfully.
-Input: Instructor- provided data files
-Expected: Files load and correct summaries appear.
-Actual: Not tested yet
-Result: Pending
+
+Description: Verify that all four instructor-provided files load successfully.
+
+Input: Original files in the data/ folder
+
+Expected: All valid records load and correct summaries appear.
+
+Actual: 7 buildings, 6 connections, 10 facilities, and 7 departments loaded successfully. All files showed 0 rejected records.
+
+Result: PASS
+
+---
 
 Test 2: Search Facility by ID
+
 Description: Search for an existing facility.
+
 Input: F004
+
 Expected: Computer Lab A is found.
-Actual: Not tested yet
-Result: Pending
 
-Test 3: BFS Reachability
+Actual: F004 was found and displayed as Computer Lab A.
+
+Result: PASS
+
+---
+
+Test 3: Case-Insensitive Facility Search
+
+Description: Check whether lowercase facility IDs are accepted.
+
+Input: f004
+
+Expected: The program finds F004.
+
+Actual: The program returned F004, Computer Lab A.
+
+Result: PASS
+
+---
+
+Test 4: Invalid Facility ID
+
+Description: Search using an incorrectly formatted facility ID.
+
+Input: 004
+
+Expected: An invalid ID format message appears.
+
+Actual: The program rejected the ID and displayed a format error.
+
+Result: PASS
+
+---
+
+Test 5: Facility Not Found
+
+Description: Search for a valid ID that does not exist.
+
+Input: F999
+
+Expected: The program reports that the facility was not found.
+
+Actual: The program displayed that F999 was not found.
+
+Result: PASS
+
+---
+
+Test 6: Display All Facilities
+
+Description: Verify that all loaded facilities are displayed.
+
+Input: Menu option 1
+
+Expected: All 10 facilities appear.
+
+Actual: All 10 facilities were displayed.
+
+Result: PASS
+
+---
+
+Test 7: Graph Counts and Degrees
+
+Description: Display the building and connection counts.
+
+Input: Menu option 4
+
+Expected: 7 buildings, 6 connections, and the correct degrees.
+
+Actual: The program displayed 7 buildings, 6 connections, and their degrees.
+
+Result: PASS
+
+---
+
+Test 8: BFS Reachability
+
 Description: Find buildings reachable from Library.
+
 Input: Library
+
 Expected: 6 of 7 buildings are reachable.
-Actual: Not tested yet
-Result: Pending
 
-Test 4: Invalid Menu Input
+Actual: BFS reported 6 of 7 reachable buildings.
+
+Result: PASS
+
+---
+
+Test 9: BFS from an Isolated Building
+
+Description: Check reachability from a building without connections.
+
+Input: Observatory
+
+Expected: Only Observatory is reachable.
+
+Actual: BFS reported 1 of 7 reachable buildings.
+
+Result: PASS
+
+---
+
+Test 10: Unknown Building
+
+Description: Run BFS using a building name that does not exist.
+
+Input: An unknown building name
+
+Expected: An error message appears.
+
+Actual: The program reported that the building was not found.
+
+Result: PASS
+
+---
+
+Test 11: Invalid Menu Input
+
 Description: Enter a menu option that does not exist.
-Input: 99
-Expected: Error message and return to menu
-Actual: Not tested yet
-Result: Pending
 
-NOTE:
-These are preliminary test cases. Additional required tests will be added. Actual results and Pass/ Fail statuses will be recorded after the program is implemented. 
+Input: 99
+
+Expected: An error message appears and the menu is displayed again.
+
+Actual: The program displayed an error and returned to the menu.
+
+Result: PASS
+
+---
+
+Test 12: Non-Numeric Menu Input
+
+Description: Check how the menu handles letters.
+
+Input: abc
+
+Expected: The program rejects the input without crashing.
+
+Actual: An invalid menu input message appeared.
+
+Result: PASS
+
+---
+
+Test 13: Add Department
+
+Description: Add a new department under an existing parent.
+
+Input: Department = Data Science, Parent = College of Engineering
+
+Expected: Data Science is added under College of Engineering.
+
+Actual: Data Science was added and appeared in the department hierarchy.
+
+Result: PASS
+
+---
+
+Test 14: Search Department
+
+Description: Search for an existing department.
+
+Input: Data Science
+
+Expected: The department is found with the correct parent and depth.
+
+Actual: Data Science was found with College of Engineering as its parent and depth 2.
+
+Result: PASS
+
+---
+
+Test 15: Duplicate Department
+
+Description: Attempt to add a department that already exists.
+
+Input: Computer Science
+
+Expected: The duplicate is rejected.
+
+Actual: The program rejected the duplicate department.
+
+Result: PASS
+
+---
+
+Test 16: Invalid Parent Department
+
+Description: Attempt to add a department under a nonexistent parent.
+
+Input: Department = Artificial Intelligence, Parent = Unknown College
+
+Expected: The department is not added.
+
+Actual: The program rejected the operation. Artificial Intelligence was not added to the tree.
+
+Result: PASS
+
+---
+
+Test 17: Department Hierarchy and Preorder
+
+Description: Display the department hierarchy and run preorder traversal.
+
+Input: Menu options 8 and 9
+
+Expected: Departments appear in the correct hierarchy and preorder sequence.
+
+Actual: The hierarchy displayed the departments with the correct indentation, and preorder traversal followed the expected order.
+
+Result: PASS
+
+---
+
+Test 18: Hash Table Collision
+
+Description: Check collision handling using additional test data.
+
+Input: ./campus testdata/collision
+
+Expected: Valid facilities load, collisions are counted, and duplicate IDs are rejected.
+
+Actual: 11 facilities were accepted, 5 records were rejected, and 1 collision was reported. The duplicate f014 was rejected without replacing the original F014.
+
+Result: PASS
+
+---
+
+Test 19: Invalid Facility Records
+
+Description: Verify that invalid records are rejected during file loading.
+
+Input: Additional records containing an unknown building, missing field, extra field, empty required field, and duplicate ID.
+
+Expected: All five invalid records are rejected with warnings.
+
+Actual: The program rejected all five records and displayed warnings with the filename, line number, and reason.
+
+Result: PASS
+
+---
+
+Test 20: Missing Input File
+
+Description: Check how the program handles a missing facilities file.
+
+Input: Temporarily remove facilities.txt from the selected data directory.
+
+Expected: An error appears, the summary shows 0 accepted and 0 rejected, and the program does not crash.
+
+Actual: The program displayed the missing-file error, reported 0 accepted and 0 rejected, and continued to the menu.
+
+Result: PASS
+
+---
+
+Test 21: Exit Program
+
+Description: Verify that the program exits correctly.
+
+Input: Menu option 10
+
+Expected: The program exits normally.
+
+Actual: The program displayed the exit message and terminated normally.
+
+Result: PASS
+
+---
+
+TEST SUMMARY
+
+Total tests documented: 21
+
+Passed: 21
+
+Failed: 0
+
+These results were recorded during functional testing of Milestone 1.
