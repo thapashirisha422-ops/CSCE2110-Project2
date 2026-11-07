@@ -5,9 +5,9 @@ PROJECT DESCRIPTION
 This project is a C++ console application that manages campus facilities, building connections, and academic department information.
 
 The system uses:
--A custom hash table for facility lookup
--A graph and BFS for campus navigation
--A general tree for department hierarchy
+- A custom hash table for facility lookup
+- A graph and BFS for campus navigation
+- A general tree for department hierarchy
 
 PROJECT STRUCTURE
 src/             - C++ source files
@@ -15,19 +15,32 @@ include/         - Header files
 data/            - Instructor-provided data files
 testdata/        - Additional test files
 
-TEAM MEMBERS 
+TEAM MEMBERS
 Aanchal Khadka
 Leah Rodriguez
 Shirisha Thapa
 
 CURRENT STATUS
-Initial repository setup completed.
-Implementation and testing are in progress.
+Milestone 1 features have been implemented and tested.
+All documentation and final verification have been completed.
 
 BUILD AND RUN
-The current starter program can be compiled on a Linux system using:
+Open a Linux terminal in the main project folder.
 
-g++ src/main.cpp   -o campus
+Compile the program using:
+
+g++ -std=c++17 -Iinclude src/*.cpp -o campus
+
+Run the program using:
+
 ./campus
 
-The bill commands and instructions will be updated when the remaining modules are integrated.
+The program loads the four files in the data/ folder by default.
+
+To run the program with the additional collision test files, use:
+
+./campus testdata/collision
+
+PROGRAM MENU
+Options 1 through 9 provide the Milestone 1 features.
+Option 10 exits the program.
