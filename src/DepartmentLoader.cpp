@@ -1,3 +1,7 @@
+// File: DepartmentLoader.cpp
+// Author: Aanchal Khadka
+// Purpose: Loads and validates department records from a text file.
+
 #include "DepartmentLoader.h"
 #include <fstream>
 #include <iostream>
