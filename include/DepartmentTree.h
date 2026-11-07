@@ -1,3 +1,7 @@
+// File: DepartmentTree.h
+// Author: Aanchal Khadka
+// Purpose: Declares the department tree class and its operations.
+
 #ifndef DEPARTMENT_TREE_H
 #define DEPARTMENT_TREE_H
 
