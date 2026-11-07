@@ -174,7 +174,9 @@ int main(int argc, char* argv[]){
         if(trimInput(parentName) == ""){
           cout << "Error parent department name cannot be blank.\n";
         }else{
-          departmentTree.addDepartment(trimInput(departmentName), trimInput(parentName));
+          if(!departmentTree.addDepartment(trimInput(departmentName), trimInput(parentName))){
+  cout << "Error: Department already exists or parent not found.\n";
+}
         }
       }
     }
