@@ -1,21 +1,35 @@
 CSCE 2110 - Project 2
 Smart Campus Navigation and Facility Analytics System
 
-   Team Members:
-1. Aanchal Khadka
+CONTRIBUTIONS - MILESTONE 1
+
+TEAM MEMBERS
+1. Shirisha Thapa
 2. Leah Rodriguez
-3. Shirisha Thapa
+3. Aanchal Khadka
 
-Individual Responsibilites:
-Member A: Sirisha Thapa
-Member B : Leah Rodriguez
+INDIVIDUAL CONTRIBUTIONS
+
+Member A: Shirisha Thapa
+- Implemented the facility hash table and facility loader.
+- Worked on facility ID validation, duplicate handling, and searching.
+- Helped with menu integration, testing, and debugging.
+
+Member B: Leah Rodriguez
+- Implemented the campus graph.
+- Worked on loading buildings and connections.
+- Implemented BFS, graph display, and building statistics.
+
 Member C: Aanchal Khadka
+- Implemented the department tree and department loader.
+- Worked on adding and searching departments.
+- Implemented department hierarchy display and traversals.
 
-Planned Shared Responsibilities:
-- File loading and validation
-- Main menu integration
-- Testing and debugging
-- Documentation
-- GitHub collaboration
+SHARED RESPONSIBILITIES
+- Integrating the different modules into the main program.
+- Reviewing file loading and input validation.
+- Testing and debugging the program.
+- Preparing project documentation.
+- Collaborating through GitHub.
 
-Note: Individual responsibilites and contributions will be updated as the project progresses.
+All three members contributed to their assigned parts of Milestone 1.
