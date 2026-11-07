@@ -179,8 +179,8 @@ LoadStats CampusGraph::loadBuildings(string filepath){
     accepted++;
   }
   cout << filename << ": " << accepted << " accepted, " << rejected << " rejected\n";
-  stats.acceptedCount = accepted;
-  stats.rejectedCount = rejected;
+  stats.accepted = accepted;
+  stats.rejected = rejected;
   return stats;
 }
 
@@ -255,8 +255,8 @@ LoadStats CampusGraph::loadConnections(string filepath){
   }
 
   cout << filename << ": " << accepted << " accepted, " << rejected << " rejected\n";
-  stats.acceptedCount = accepted;
-  stats.rejectedCount = rejected;
+  stats.accepted = accepted;
+  stats.rejected = rejected;
   return stats;
 }
 

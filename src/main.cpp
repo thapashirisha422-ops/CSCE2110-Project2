@@ -1,7 +1,7 @@
 // CSCE 2110 - Project 2
 // Smart Campus Navigation and Facility Analytics System
 //File: main.cpp
-//Author: Leah, Sirisha, Aanchal
+//Author: Leah, Shirisha, Aanchal
 //Purpose: Milestone 1 menu
 
 #include <iostream>
@@ -10,6 +10,8 @@
 #include "../include/CampusGraph.h"
 #include "../include/FacilityHashTable.h"
 #include "../include/DepartmentTree.h"
+#include "../include/FacilityLoader.h"
+#include "../include/DepartmentLoader.h"
 
 using namespace std;
 
@@ -95,16 +97,52 @@ int main(int argc, char* argv[]){
     if(choice == 1){
       facilityTable.displayFacilities();
     }
-    else if(choice == 2){
-      cout << "Enter facility ID: ";
-      string facilityId;
-      getline(cin, facilityId);
-      if(trimInput(facilityId) == ""){
-        cout << "Error: Facility ID cannot be blank\n";
-      }else{
-      facilityTable.findById(facilityId);
+   else if(choice == 2){
+  cout << "Enter facility ID: ";
+  string facilityId;
+  getline(cin, facilityId);
+
+  facilityId = trimInput(facilityId);
+
+  // Convert ID to uppercase
+  for(char& letter : facilityId){
+    if(letter >= 'a' && letter <= 'z'){
+      letter = letter - 'a' + 'A';
+    }
+  }
+
+  // Check ID format
+  bool validId = facilityId.length() == 4 && facilityId[0] == 'F';
+
+  if(validId){
+    for(int i = 1; i < 4; i++){
+      if(facilityId[i] < '0' || facilityId[i] > '9'){
+        validId = false;
       }
     }
+  }
+
+  if(facilityId.empty()){
+    cout << "Error: Facility ID cannot be blank.\n";
+  }
+  else if(!validId){
+    cout << "Invalid ID format. Use F followed by three digits.\n";
+  }
+  else{
+    const Facility* result = facilityTable.findById(facilityId);
+
+    if(result == nullptr){
+      cout << "Facility " << facilityId << " not found.\n";
+    }
+    else{
+      cout << result->facilityId << " | "
+           << result->facilityName << " | "
+           << result->buildingName << " | "
+           << result->category << endl;
+    }
+  }
+}
+
     else if (choice == 3){
       campusGraph.displayGraph();
     }

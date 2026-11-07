@@ -7,17 +7,9 @@
 
 #include <string>
 #include <vector>
+#include "LoadStats.h"
 
 using namespace std;
-
-//tally of how many lines accepted & rejected when loading files
-#ifndef LOAD_STATS_DEFINED
-#define LOAD_STATS_DEFINED
-struct LoadStats{
-  int acceptedCount = 0;
-  int rejectedCount = 0;
-};
-#endif
 
 //one building name plus list of connected buildings
 struct BuildingNode{
