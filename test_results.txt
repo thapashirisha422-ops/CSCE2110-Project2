@@ -33,3 +33,68 @@ Result: Pending
 
 NOTE:
 These are preliminary test cases. Additional required tests will be added. Actual results and Pass/ Fail statuses will be recorded after the program is implemented. 
+
+DEPARTMENT GENERAL TREE - MEMBER C TEST RESULTS
+
+Test 5: Load Department Data
+Input: data/departments.txt
+Expected: 7 accepted, 0 rejected
+Actual: 7 accepted, 0 rejected
+Result: PASS
+
+Test 6: Display Department Hierarchy
+Expected: University as root with correctly indented departments.
+Actual: Hierarchy displayed correctly.
+Result: PASS
+
+Test 7: Case-Insensitive Department Search
+Input: computer science
+Expected: Computer Science, parent College of Engineering, depth 2.
+Actual: Matched expected output.
+Result: PASS
+
+Test 8: Preorder Traversal
+Expected: University, College of Engineering, Computer Science,
+Electrical Engineering, College of Science, Mathematics, Physics.
+Actual: Matched expected output.
+Result: PASS
+
+Test 9: Postorder Traversal
+Expected: Computer Science, Electrical Engineering,
+College of Engineering, Mathematics, Physics,
+College of Science, University.
+Actual: Matched expected output.
+Result: PASS
+
+Test 10: Level-Order Traversal
+Expected: University, College of Engineering, College of Science,
+Computer Science, Electrical Engineering, Mathematics, Physics.
+Actual: Matched expected output.
+Result: PASS
+
+Test 11: Total Department Count
+Expected: 7
+Actual: 7
+Result: PASS
+
+Test 12: Tree Height
+Expected: 2 edges
+Actual: 2
+Result: PASS
+
+
+Test 13: Invalid Department Data Handling
+Input: testdata/departments_invalid.txt
+Expected: 3 accepted, 4 rejected
+Actual: 3 accepted, 4 rejected
+Result: PASS
+
+Invalid records detected:
+- Line 4: Duplicate department name
+- Line 5: Invalid parent department
+- Line 6: Empty parent field
+- Line 7: Incorrect record format
+
+The program continued executing successfully.
+
+
