@@ -297,12 +297,126 @@ Result: PASS
 
 ---
 
+
+Test 22: Case-Insensitive Duplicate Building
+
+Description: Check whether duplicate building names with different capitalization are rejected.
+
+Input: Add "lIbRaRy" to buildings.txt.
+
+Expected: Duplicate is rejected with a warning.
+
+Actual: 7 buildings accepted, 1 rejected. Duplicate building warning displayed.
+
+Result: PASS
+
+---
+
+Test 23: Blank Lines and Comments
+
+Description: Check blank lines, indented comments, and Windows line endings in all four input files.
+
+Input: Blank lines, comments, and CRLF line endings.
+
+Expected: Valid records load without additional rejections.
+
+Actual: 7 buildings, 6 connections, 10 facilities, and 7 departments accepted. All had 0 rejected records.
+
+Result: PASS
+
+---
+
+Test 24: Unknown Building in Connections
+
+Description: Check connections referencing unknown buildings.
+
+Input: Library|Atlantis
+
+Expected: Connection is rejected with a warning.
+
+Actual: 6 connections accepted, 1 rejected. Warning identified Atlantis as an unknown building.
+
+Result: PASS
+
+---
+
+Test 25: Duplicate and Reversed Connections
+
+Description: Check that repeated undirected edges are rejected.
+
+Input: Library|Student Union and Student Union|Library added again.
+
+Expected: Both duplicate connections are rejected.
+
+Actual: 6 connections accepted, 2 rejected. Total connections remained 6.
+
+Result: PASS
+
+---
+
+Test 26: Unknown Department Parent
+
+Description: Check department loading with a nonexistent parent.
+
+Input: Artificial Intelligence|Unknown College
+
+Expected: Department is rejected and a warning appears.
+
+Actual: 7 departments accepted, 1 rejected. The warning identified the unknown parent. Artificial Intelligence was not found afterward.
+
+Result: PASS
+
+---
+
+Test 27: Multiple Graph Components
+
+Description: Check BFS in a disconnected graph.
+
+Input: Five buildings A, B, C, D, E with connections A|B and C|D.
+
+Expected: BFS from A and C reaches 2 buildings each. BFS from E reaches only 1.
+
+Actual: BFS from A reached 2 of 5, C reached 2 of 5, and E reached 1 of 5.
+
+Result: PASS
+
+---
+
+Test 28: Empty and Root-Only Department Tree
+
+Description: Check empty tree operations and adding the first root.
+
+Input: Empty department data, then add Student Affairs and search for it.
+
+Expected: Empty tree message appears. First department becomes the root without requesting a parent.
+
+Actual: Empty tree message appeared. Student Affairs was added as root, with Parent: None, Direct children: 0, and Depth: 0.
+
+Result: PASS
+
+---
+
+Test 29: Invalid Inputs and Recovery
+
+Description: Check that errors do not prevent later valid operations.
+
+Input: Invalid menu option 99, blank department name, unknown department, invalid parent, followed by adding Quantum Computing under College of Engineering.
+
+Expected: Invalid operations are rejected. A later valid department can still be added and searched.
+
+Actual: Error messages appeared for invalid inputs. Quantum Computing was successfully added and found at depth 2 under College of Engineering.
+
+Result: PASS
+
+---
+
+
 TEST SUMMARY
 
-Total tests documented: 21
+Total tests documented: 29
 
-Passed: 21
+Passed: 29
 
 Failed: 0
 
-These results were recorded during functional testing of Milestone 1.
+These results were recorded during functional testing of Milestone 1, including additional tests using temporary modified input files.
