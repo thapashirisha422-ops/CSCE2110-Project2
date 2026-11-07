@@ -1,36 +1,52 @@
-  CSCE 2110 - Project 2
-  Smart Campus Navigation and Facility Analytics System
+CSCE 2110 - Project 2  
+Smart Campus Navigation and Facility Analytics System
 
-  DESIGN DOCUMENT - MILESTONE 1
+DESIGN DOCUMENT - MILESTONE 1
 
-  1. PROJECT OVERVIEW
-  This project is a C++ console application that uses a custom hash table, campus graph, and general tree to manage campus information.
+1. PROJECT OVERVIEW
 
-  2. FACILITY DATABASE AND HASH TABLE
-  The system will store facilities and support searching by facility ID.
+This project is a C++ console application that uses a custom hash table, campus graph, and general tree to manage campus information.
 
-  Hash function: To be determined 
-  Hash table capacity: To be determined
-  Collision strategy: To be determined
-  Collision counting method: To be determined
+2. FACILITY DATABASE AND HASH TABLE
 
-  3. CAMPUS GRAPH
-  The system will represent campus buildings as vertices and walkways as undirected edges.
+The system stores facilities in a custom hash table and supports searching by facility ID.
 
-  Graph representation: To be determined
+Hash function: The facility ID is converted to uppercase. Starting with 0, the hash value is calculated using (hashValue * 31 + ASCII value of character) % 17 for each character.
 
-  Breadth-First Search (BFS) will use a queue and a visited structure to find reachable buildings and their distances.
+Hash table capacity: 17 buckets. A prime number is used for the table size to help distribute facilities across buckets.
 
-  4. DEPARTMENT TREE
-  The system will use a general tree to represent academic departments.
+Collision strategy: Separate chaining using vectors. Facilities that hash to the same bucket are stored together.
 
-  Each department can have multiple children. The program will support adding departments, searching, and preorder traversal.
+Collision counting method: A collision is counted when a new valid facility is inserted into a bucket that already contains another facility. Rejected duplicates are not counted.
 
-  5. CODE ORGANIZATION
-  src/- Implementation files
-  include/ - Header files
-  data/ - Instructor-provided input files
-  testdata/ - Additional testing files
+3. CAMPUS GRAPH
 
-  DEVELOPMENT STATUS
-  This document contains the initial project design outline. Implementation choices, formulas, justifications, and module details will be added during development.
+The system represents campus buildings as vertices and walkways as undirected edges.
+
+Graph representation: The system uses an adjacency list to store buildings and their connections. Each walkway is an undirected edge, so both buildings are added to each other's neighbor lists. This makes it easy to display connections and perform BFS.
+
+Breadth-First Search (BFS) uses a queue and a visited structure to find reachable buildings and their distances.
+
+4. DEPARTMENT TREE
+
+The system uses a general tree to represent academic departments.
+
+Each department has a name, a parent, and a list of children. The tree starts with one root department. It supports adding departments, searching by name, displaying the hierarchy, and preorder traversal. Duplicate department names are not allowed.
+
+5. CODE ORGANIZATION
+
+src/ - Contains the C++ implementation files.
+
+include/ - Contains the header files.
+
+data/ - Contains the instructor-provided input files.
+
+testdata/ - Contains additional files for testing.
+
+main.cpp handles the menu and loads the data files.
+
+FacilityHashTable and FacilityLoader manage facility storage and loading.
+
+CampusGraph manages building connections and BFS.
+
+DepartmentTree and DepartmentLoader manage the department hierarchy.
