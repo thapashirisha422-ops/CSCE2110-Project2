@@ -1,3 +1,7 @@
+// File: LoadStats.h
+// Author: Aanchal Khadka
+// Purpose: Defines a structure for tracking accepted and rejected records.
+
 #ifndef LOAD_STATS_H
 #define LOAD_STATS_H
 
