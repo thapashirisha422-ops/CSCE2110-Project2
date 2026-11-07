@@ -53,6 +53,9 @@ public:
     //Check whether the tree is empty
     bool isEmpty() const;
 
+    // Check whether a department already exists
+    bool departmentExists(const string& departmentName) const;
+
     // Search department
     void searchDepartment(
         const string& departmentName
