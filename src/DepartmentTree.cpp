@@ -56,6 +56,11 @@ bool DepartmentTree::isEmpty() const {
     return root == nullptr;
 }
 
+// Check if a department already exists
+bool DepartmentTree::departmentExists(const string& departmentName) const {
+    return findDepartment(root, departmentName) != nullptr;
+}
+
 // Search helper
 DepartmentNode* DepartmentTree::findDepartment(
     DepartmentNode* node,
