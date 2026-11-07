@@ -34,8 +34,9 @@ LoadStats loadDepartments(
 
     ifstream file(path);
 
-    if (!file.is_open()) {
+   if (!file.is_open()) {
     cout << "Error: Cannot open " << path << endl;
+    cout << path << ": 0 accepted, 0 rejected" << endl;
     return stats;
 }
 string line;
