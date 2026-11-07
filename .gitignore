@@ -67,3 +67,8 @@ vcpkg_installed/
 Testing/
 .cache/
 campus
+
+# IDE and editor files
+.vscode/
+.idea/
+*.code-workspace
