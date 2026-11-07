@@ -7,12 +7,12 @@ using namespace std;
 
 //Remove whitespace from the beginning and end 
 static string trimField(const string& text) {
-    size_t start = text.find_first_not_of("\t\r\n");
+    size_t start = text.find_first_not_of(" \t\r\n");
 
     if (start == string::npos) {
         return "";
     }
-    size_t end = text.find_last_not_of("\t\r\n");
+    size_t end = text.find_last_not_of(" \t\r\n");
     return text.substr(start, end - start + 1);
 }
 
