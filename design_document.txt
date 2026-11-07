@@ -17,6 +17,8 @@ Hash table capacity: 17 buckets. A prime number is used for the table size to he
 
 Collision strategy: Separate chaining using vectors. Facilities that hash to the same bucket are stored together.
 
+Separate chaining was chosen because each bucket can store multiple facilities, so the table does not become full even when all 17 buckets are occupied.
+
 Collision counting method: A collision is counted when a new valid facility is inserted into a bucket that already contains another facility. Rejected duplicates are not counted.
 
 3. CAMPUS GRAPH
