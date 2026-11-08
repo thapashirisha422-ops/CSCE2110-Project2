@@ -47,30 +47,30 @@ string CampusGraph::toLower(string str) const{
 //break line at the |, blank, or #
 bool CampusGraph::splitFields(string line, vector<string>& fields) const {
   fields.clear();
-  string cleanLine = trim(line);
+  string trimmedLine = trim(line);
 
-  if (cleanLine == "" || cleanLine[0] == '#'){
+  if (trimmedLine == "" || trimmedLine[0] == '#'){
     return false;
   }
 
-  string currentWord = "";
+  string word = "";
   for (int i = 0; i < (int)line.length(); i++){
     if(line[i] == '|'){
-      fields.push_back(trim(currentWord));
-      currentWord = "";
+      fields.push_back(trim(word));
+      word = "";
     } else{
-      currentWord += line[i];
+      word += line[i];
     }
   }
-  fields.push_back(trim(currentWord));
+  fields.push_back(trim(word));
 
   return true;
 }
 
 //check if buildings are connected
-bool CampusGraph::hasEdge(int u, int v) const{
-    for(int i = 0; i < (int)buildings[u].neighbors.size(); i++){
-      if(buildings[u].neighbors[i] == v){
+bool CampusGraph::hasEdge(int idxA, int idxB) const{
+    for(int i = 0; i < (int)buildings[idxA].neighbors.size(); i++){
+      if(buildings[idxA].neighbors[i] == idxB){
         return true;
       }
     }
@@ -93,12 +93,12 @@ int CampusGraph::findBuildingIndex(string name) const{
 
 //add new buildings to list
 bool CampusGraph::addBuilding(const string& buildingName){
-  string cleanName = trim(buildingName);
-  if(cleanName == "" || findBuildingIndex(cleanName) != -1){
+  string trimmed = trim(buildingName);
+  if(trimmed == "" || findBuildingIndex(trimmed) != -1){
     return false;
   }
   BuildingNode newNode;
-  newNode.name = cleanName;
+  newNode.name = trimmed;
   buildings.push_back(newNode);
   return true;
 }
