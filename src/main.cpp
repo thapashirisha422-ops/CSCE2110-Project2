@@ -74,25 +74,25 @@ int main(int argc, char* argv[]){
     if(!getline(cin, userInput)){
       break;
     }
-    string cleanInput = trimInput(userInput);
+    string trimmed = trimInput(userInput);
 
-    if(cleanInput == ""){
+    if(trimmed == ""){
       cout << "Error: Please enter a number from 1 to 10(or 0 to exit).\n";
       continue;
     }
-    bool isAllDigits = true;
-    for (int i = 0; i < (int)cleanInput.length(); i++){
-      if(cleanInput[i] < '0' || cleanInput[i] > '9'){
-      isAllDigits = false;
+    bool allDigits = true;
+    for (int i = 0; i < (int)trimmed.length(); i++){
+      if(trimmed[i] < '0' || trimmed[i] > '9'){
+      allDigits = false;
       break;
       }
     }
-    if(!isAllDigits || cleanInput.length() > 4){
-      cout << "Error: Invalid menu input '" << cleanInput << "'. Please enter a valid option number.\n";
+    if(!allDigits || trimmed.length() > 4){
+      cout << "Error: Invalid menu input '" << trimmed << "'. Please enter a valid option number.\n";
       continue;
     }
 
-    int choice = atoi(cleanInput.c_str());
+    int choice = atoi(trimmed.c_str());
 
     if(choice == 1){
       facilityTable.displayFacilities();
