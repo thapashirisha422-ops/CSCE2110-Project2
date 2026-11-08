@@ -27,7 +27,7 @@ private:
   string trim(string str) const;
   string toLower(string str) const;
   bool splitFields(string line, vector<string>& fields) const;
-  bool hasEdge(int u, int v) const;
+  bool hasEdge(int idxA, int idxB) const;
 
 public:
   CampusGraph();
