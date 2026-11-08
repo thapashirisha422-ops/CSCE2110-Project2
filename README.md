@@ -31,20 +31,22 @@ Milestone 1 features have been implemented and tested.
 Open a Linux terminal in the main project folder.
 
 Compile the program using:
-
 `g++ -std=c++17 -Iinclude src/*.cpp -o campus`
 
 Run the program using:
-
 `./campus`
 
 The program loads the four files in the `data/` folder by default.
 
 To run the additional collision test:
-
 `./campus testdata/collision`
 
 ## Program Menu
 Options 1 through 9 provide the Milestone 1 features.
 
 Option 10 exits the program.
+
+## GitHub Repository
+https://github.com/thapashirisha422-ops/CSCE2110-Project2.git
+
+
