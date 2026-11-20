@@ -2,7 +2,7 @@
 // Smart Campus Navigation and Facility Analytics System
 //File: main.cpp
 //Author: Leah, Shirisha, Aanchal
-//Purpose: Milestone 1 menu
+//Purpose: Final project menu
 
 #include <iostream>
 #include <string>
@@ -15,6 +15,7 @@
 
 using namespace std;
 
+// Removes outer whitespace from input
 string trimInput(string str){
   int start = 0;
   int len = (int)str.length();
@@ -34,22 +35,32 @@ string trimInput(string str){
   return str.substr(start, end - start + 1);
 }
 
+// Displays the final menu
 void printMenu(){
   cout << "\n--- Smart Campus Navigation System ---\n";
   cout << "1. View all facilities\n";
   cout << "2. Search facility by ID\n";
-  cout << "3. View campus graph\n";
-  cout << "4. Display graph counts and degrees\n";
-  cout << "5. Find reachable buildings(BFS)\n";
-  cout << "6. Add department\n";
-  cout << "7. Search department\n";
-  cout << "8. Display department hierarchy\n";
-  cout << "9. Run preorder traversal\n";
-  cout << "10. Exit\n";
+  cout << "3. Search facility by name\n";
+  cout << "4. Search facility by category\n";
+  cout << "5. View campus graph\n";
+  cout << "6. Display graph counts and degrees\n";
+  cout << "7. Find reachable buildings (BFS)\n";
+  cout << "8. Find shortest path (BFS)\n";
+  cout << "9. Add department\n";
+  cout << "10. Search department\n";
+  cout << "11. Display department hierarchy\n";
+  cout << "12. Preorder traversal\n";
+  cout << "13. Postorder traversal\n";
+  cout << "14. Level-order traversal\n";
+  cout << "15. Department statistics\n";
+  cout << "16. Facility category report\n";
+  cout << "17. Graph connectivity report\n";
+  cout << "18. Exit\n";
   cout << "Enter choice: ";
 }
 
-int main(int argc, char* argv[]){
+// Loads data and handles menu choices
+  int main(int argc, char* argv[]){
   cout << "Smart Campus Navigation System" << endl;
 
   string dataDirectory = "data";
@@ -77,7 +88,7 @@ int main(int argc, char* argv[]){
     string trimmed = trimInput(userInput);
 
     if(trimmed == ""){
-      cout << "Error: Please enter a number from 1 to 10(or 0 to exit).\n";
+      cout << "Error: Please enter a number from 1 to 18(or 0 to exit).\n";
       continue;
     }
     bool allDigits = true;
@@ -143,13 +154,35 @@ int main(int argc, char* argv[]){
   }
 }
 
-    else if (choice == 3){
-      campusGraph.displayGraph();
+      else if(choice == 3){
+      cout << "Enter facility name: ";
+      string name;
+      getline(cin, name);
+
+      if(trimInput(name) == ""){
+        cout << "Error: Facility name cannot be blank.\n";
+      }else{
+        facilityTable.searchByName(name);
+      }
     }
     else if(choice == 4){
+      cout << "Enter facility category: ";
+      string category;
+      getline(cin, category);
+
+      if(trimInput(category) == ""){
+        cout << "Error: Category cannot be blank.\n";
+      }else{
+        facilityTable.searchByCategory(category);
+      }
+    }   
+    else if (choice == 5){
+      campusGraph.displayGraph();
+    }
+    else if(choice == 6){
       campusGraph.displayCountsAndDegrees();
     }
-    else if (choice == 5){
+    else if (choice == 7){
       cout << "Enter starting building name: ";
       string buildingName;
       getline(cin, buildingName);
@@ -159,7 +192,7 @@ int main(int argc, char* argv[]){
         campusGraph.findReachableBuildings(buildingName);
       }
     }
-    else if(choice == 6){
+    else if(choice == 9){
       cout << "Enter department name: ";
       string departmentName;
       getline(cin, departmentName);
@@ -186,7 +219,7 @@ else {
         }
       }
     }
-    else if(choice == 7){
+    else if(choice == 10){
       cout << "Enter department name: ";
       string departmentName;
       getline(cin, departmentName);
@@ -196,18 +229,25 @@ else {
         departmentTree.searchDepartment(trimInput(departmentName));
       }
     }
-    else if(choice == 8){
+    else if(choice == 11){
       departmentTree.displayHierarchy();
     }
-    else if(choice == 9){
+    else if(choice == 12){
       departmentTree.preorderTraversal();
     }
-    else if (choice == 10 || choice == 0){
+          else if(choice == 16){
+      facilityTable.displayCategoryReport();
+    }
+    else if(choice == 8 || choice == 13 || choice == 14 ||
+            choice == 15 || choice == 17){
+      cout << "This option is pending team integration.\n";
+    }
+    else if (choice == 18 || choice == 0){
       cout << "Exiting program.\n";
       running = false;
     }
     else{
-      cout << "Error: Option " << choice << " is not an option. Please enter a number from 1 to 10(or 0 to exit).\n";
+      cout << "Error: Option " << choice << " is not an option. Please enter a number from 1 to 18(or 0 to exit).\n";
     }
   }
 
