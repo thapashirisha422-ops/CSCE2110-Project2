@@ -37,6 +37,15 @@ public:
     // Displays all facilities
     void displayFacilities() const;
 
+    // Searches facilities by name
+    void searchByName(const string& name) const;
+
+    // Searches facilities by category
+    void searchByCategory(const string& category) const;
+
+    // Displays the facility category report
+    void displayCategoryReport() const;
+
     // Returns hash table capacity
     size_t getCapacity() const;
 
