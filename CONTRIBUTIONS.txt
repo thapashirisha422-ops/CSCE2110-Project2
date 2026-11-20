@@ -1,7 +1,7 @@
 CSCE 2110 - Project 2
 Smart Campus Navigation and Facility Analytics System
 
-CONTRIBUTIONS - MILESTONE 1
+CONTRIBUTIONS - Final Submission
 
 TEAM MEMBERS
 1. Shirisha Thapa
@@ -21,9 +21,15 @@ Member B: Leah Rodriguez
 - Implemented BFS, graph display, and building statistics.
 
 Member C: Aanchal Khadka
-- Implemented the department tree and department loader.
-- Worked on adding and searching departments.
-- Implemented department hierarchy display and traversals.
+- Implemented the Department Tree using a general tree structure.
+- Developed the Department Loader to read and validate department records from text files.
+- Implemented adding departments, searching departments, and displaying the department hierarchy.
+- Implemented preorder, postorder, and level-order traversals.
+- Added department statistics, including total departments, leaf departments, and tree height.
+- Handled invalid department names, duplicate departments, and nonexistent parent departments.
+- Tested the Department Tree with valid data, invalid inputs, an empty tree, and a root-only tree.
+- Integrated and tested the Department Tree features in the Final menu.
+
 
 SHARED RESPONSIBILITIES
 - Integrating the different modules into the main program.
@@ -32,4 +38,5 @@ SHARED RESPONSIBILITIES
 - Preparing project documentation.
 - Collaborating through GitHub.
 
-All three members contributed to their assigned parts of Milestone 1.
+All three members contributed to their assigned modules during Milestone 1. Additional features, integration, and testing were completed for the Final submission.
+

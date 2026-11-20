@@ -2,7 +2,7 @@
 // Smart Campus Navigation and Facility Analytics System
 //File: main.cpp
 //Author: Leah, Shirisha, Aanchal
-//Purpose: Final project menu
+//Purpose: Final Project Menu
 
 #include <iostream>
 #include <string>
@@ -37,6 +37,7 @@ string trimInput(string str){
 
 // Displays the final menu
 void printMenu(){
+   
   cout << "\n--- Smart Campus Navigation System ---\n";
   cout << "1. View all facilities\n";
   cout << "2. Search facility by ID\n";
@@ -235,26 +236,30 @@ else {
     else if(choice == 12){
       departmentTree.preorderTraversal();
     }
-          else if(choice == 16){
+    else if(choice == 13){
+      departmentTree.postorderTraversal();
+    }
+    else if(choice == 14){
+      departmentTree.levelOrderTraversal();
+    }
+    else if(choice == 15){
+      departmentTree.displayStatistics();
+    }
+    else if(choice == 16){
       facilityTable.displayCategoryReport();
     }
-    else if(choice == 8 || choice == 13 || choice == 14 ||
-            choice == 15 || choice == 17){
+    else if(choice == 8 || choice == 17){
       cout << "This option is pending team integration.\n";
     }
-    else if (choice == 18 || choice == 0){
+    else if(choice == 18 || choice == 0){
       cout << "Exiting program.\n";
       running = false;
     }
     else{
-      cout << "Error: Option " << choice << " is not an option. Please enter a number from 1 to 18(or 0 to exit).\n";
+      cout << "Error: Option " << choice
+           << " is not an option. Please enter a number from 1 to 18 (or 0 to exit).\n";
     }
-  }
+  } // End while loop
 
   return 0;
-}
-      
-      
-        
-
-
+} // End main
