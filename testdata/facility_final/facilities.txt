@@ -1,0 +1,8 @@
+ f014 | Room #5 | library | Computer Lab
+F001|room #5|Science Building|computer LAB
+F002|Study Room|Library|Library
+F003|Room  #5|Library|COMPUTER LAB
+F004|Lab Office|Science Building|Office
+F005||Library|Office
+f014|Duplicate Room|Library|Office
+F006|Unknown Room|Missing Building|Office
