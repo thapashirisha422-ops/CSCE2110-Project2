@@ -15,6 +15,7 @@
 
 using namespace std;
 
+// Removes outer whitespace from input
 string trimInput(string str){
   int start = 0;
   int len = (int)str.length();
@@ -34,6 +35,7 @@ string trimInput(string str){
   return str.substr(start, end - start + 1);
 }
 
+// Displays the final menu
 void printMenu(){
    
   cout << "\n--- Smart Campus Navigation System ---\n";
@@ -58,8 +60,8 @@ void printMenu(){
   cout << "Enter choice: ";
 }
 
-
-int main(int argc, char* argv[]){
+// Loads data and handles menu choices
+  int main(int argc, char* argv[]){
   cout << "Smart Campus Navigation System" << endl;
 
   string dataDirectory = "data";
@@ -153,6 +155,28 @@ int main(int argc, char* argv[]){
   }
 }
 
+      else if(choice == 3){
+      cout << "Enter facility name: ";
+      string name;
+      getline(cin, name);
+
+      if(trimInput(name) == ""){
+        cout << "Error: Facility name cannot be blank.\n";
+      }else{
+        facilityTable.searchByName(name);
+      }
+    }
+    else if(choice == 4){
+      cout << "Enter facility category: ";
+      string category;
+      getline(cin, category);
+
+      if(trimInput(category) == ""){
+        cout << "Error: Category cannot be blank.\n";
+      }else{
+        facilityTable.searchByCategory(category);
+      }
+    }   
     else if (choice == 5){
       campusGraph.displayGraph();
     }
@@ -212,22 +236,28 @@ else {
     else if(choice == 12){
       departmentTree.preorderTraversal();
     }
-    
     else if(choice == 13){
-        departmentTree.postorderTraversal();
+      departmentTree.postorderTraversal();
     }
     else if(choice == 14){
-        departmentTree.levelOrderTraversal();
+      departmentTree.levelOrderTraversal();
     }
     else if(choice == 15){
-        departmentTree.displayStatistics();
+      departmentTree.displayStatistics();
+    }
+    else if(choice == 16){
+      facilityTable.displayCategoryReport();
+    }
+    else if(choice == 8 || choice == 17){
+      cout << "This option is pending team integration.\n";
     }
     else if(choice == 18 || choice == 0){
-        cout << "Exiting program.\n";
-        running = false;
+      cout << "Exiting program.\n";
+      running = false;
     }
     else{
-        cout << "Error: Invalid option.\n";
+      cout << "Error: Option " << choice
+           << " is not an option. Please enter a number from 1 to 18 (or 0 to exit).\n";
     }
   } // End while loop
 
