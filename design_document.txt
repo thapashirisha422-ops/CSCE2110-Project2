@@ -1,7 +1,7 @@
 CSCE 2110 - Project 2  
 Smart Campus Navigation and Facility Analytics System
 
-DESIGN DOCUMENT - MILESTONE 1
+DESIGN DOCUMENT - FINAL SUBMISSION
 
 1. PROJECT OVERVIEW
 
@@ -52,3 +52,29 @@ FacilityHashTable and FacilityLoader manage facility storage and loading.
 CampusGraph manages building connections and BFS.
 
 DepartmentTree and DepartmentLoader manage the department hierarchy.
+
+6. INPUT VALIDATION AND ERROR HANDLING
+
+The program validates user input and file records to prevent invalid data from being processed.
+
+The menu checks for blank, nonnumeric, and unavailable options. Facility IDs are validated before searching, and department operations check for duplicate names and missing parents.
+
+The data loaders report accepted and rejected records. Invalid records are rejected with warning messages, while valid records continue loading.
+
+The Department Tree also handles special cases such as an empty tree, a root-only tree, and searches for departments that do not exist.
+
+These checks allow the program to continue running after invalid input instead of terminating unexpectedly.
+
+7. TESTING AND VERIFICATION
+
+The system was tested using valid input files, invalid records, and additional test datasets.
+
+Department Tree testing included adding departments, searching for existing and nonexistent departments, checking duplicate names, rejecting invalid parents, and verifying tree traversals.
+
+Additional tests checked department statistics for a normal tree, an empty tree, and a root-only tree.
+
+For the original dataset, the Department Tree contained 7 departments, 4 leaf departments, and a height of 2.
+
+After adding Robotics under College of Engineering, the tree contained 8 departments, 5 leaf departments, and a height of 2.
+
+The complete testing results are documented in test_results.txt.

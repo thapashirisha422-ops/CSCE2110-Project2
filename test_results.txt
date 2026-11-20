@@ -9,7 +9,7 @@ Description: Verify that all four instructor-provided files load successfully.
 
 Input: Original files in the data/ folder
 
-Expected: All valid records load and correct summaries appear.
+Expected: All valid records load and correct summaries appear. 
 
 Actual: 7 buildings, 6 connections, 10 facilities, and 7 departments loaded successfully. All files showed 0 rejected records.
 
@@ -420,3 +420,202 @@ Passed: 29
 Failed: 0
 
 These results were recorded during functional testing of Milestone 1, including additional tests using temporary modified input files.
+
+
+FINAL SUBMISSION — MEMBER C DEPARTMENT TREE TEST RESULTS
+
+These tests were performed on the Final version of the Smart Campus Navigation and Facility Analytics System.
+
+---
+
+Test 30: Postorder Traversal
+
+Description: Verify that departments are displayed in postorder.
+
+Input: Menu option 13.
+
+Expected: Child departments appear before their parent departments.
+
+Actual: Computer Science, Electrical Engineering, College of Engineering, Mathematics, Physics, College of Science, University.
+
+Result: PASS
+
+---
+
+**Test 31: Level-Order Traversal**
+
+Description: Verify that departments are displayed level by level.
+
+Input: Menu option 14.
+
+Expected: Departments are visited from the root to the lowest level.
+
+Actual: University, College of Engineering, College of Science, Computer Science, Electrical Engineering, Mathematics, Physics.
+
+Result: PASS
+
+---
+
+**Test 32: Department Statistics**
+
+Description: Verify the total departments, leaf departments, and tree height.
+
+Input: Menu option 15.
+
+Expected: Total departments = 7, Leaf departments = 4, Tree height = 2.
+
+Actual: Total departments = 7, Leaf departments = 4, Tree height = 2.
+
+Result: PASS
+
+---
+
+**Test 33: Duplicate Department**
+
+Description: Attempt to add an existing department.
+
+Input: Computer Science under College of Engineering.
+
+Expected: The program rejects the duplicate.
+
+Actual: Error: Department already exists.
+
+Result: PASS
+
+---
+
+**Test 34: Invalid Parent Department**
+
+Description: Attempt to add a department under a nonexistent parent.
+
+Input: Robotics under Unknown Department.
+
+Expected: The program rejects the invalid parent.
+
+Actual: Error: Parent department not found.
+
+Result: PASS
+
+---
+
+**Test 35: Add Valid Department**
+
+Description: Add Robotics under College of Engineering and verify updated statistics.
+
+Input: Menu option 9, Robotics, College of Engineering, followed by option 15.
+
+Expected: Total departments = 8, Leaf departments = 5, Tree height = 2.
+
+Actual: Total departments = 8, Leaf departments = 5, Tree height = 2.
+
+Result: PASS
+
+---
+
+**Test 36: Search Newly Added Department**
+
+Description: Search for Robotics after adding it.
+
+Input: Menu option 10, Robotics.
+
+Expected: Correct parent, children count, and depth.
+
+Actual: Parent = College of Engineering, Direct children = 0, Depth = 2.
+
+Result: PASS
+
+---
+
+**Test 37: Search Nonexistent Department**
+
+Description: Search for a department that does not exist.
+
+Input: Menu option 10, Artificial Intelligence.
+
+Expected: The program reports that the department was not found.
+
+Actual: Department not found.
+
+Result: PASS
+
+---
+
+**Test 38: Blank Department Name**
+
+Description: Attempt to add a department without entering a name.
+
+Input: Menu option 9, blank department name.
+
+Expected: The program rejects the blank input.
+
+Actual: Error: Department name cannot be blank.
+
+Result: PASS
+
+---
+
+**Test 39: Blank Parent Department Name**
+
+Description: Attempt to add a department without entering a parent.
+
+Input: Menu option 9, Cybersecurity, blank parent name.
+
+Expected: The program rejects the blank parent.
+
+Actual: Error: Parent department name cannot be blank.
+
+Result: PASS
+
+---
+
+**Test 40: Empty Department Tree**
+
+Description: Verify that statistics work when no departments are loaded.
+
+Input: Run with testdata/empty_tree, then select option 15.
+
+Expected: Zero departments, zero leaves, and appropriate empty-tree height output.
+
+Actual: No departments are loaded. Total departments = 0, Leaf departments = 0, Tree height = N/A. Statistics displayed once without crashing.
+
+Result: PASS
+
+---
+
+**Test 41: Root-Only Department Tree**
+
+Description: Verify statistics when the tree contains only the root department.
+
+Input: Run with testdata/root_only, containing University as the only department, then select option 15.
+
+Expected: Total departments = 1, Leaf departments = 1, Tree height = 0.
+
+Actual: 1 department accepted, 0 rejected. Total departments = 1, Leaf departments = 1, Tree height = 0.
+
+Result: PASS
+
+---
+
+## MEMBER C FINAL TEST SUMMARY
+
+Total additional tests: 12
+
+Passed: 12
+
+Failed: 0
+
+All tested Member C Department Tree features passed, including traversals, statistics, department insertion, searching, invalid inputs, and empty/root-only tree cases.
+
+## COMBINED DOCUMENTATION SUMMARY
+
+Milestone 1 tests documented: 29
+
+Additional Member C Final tests: 12
+
+Total documented tests: 41
+
+Passed: 41
+
+Failed: 0
+
+Note: These totals cover the documented Milestone 1 tests and Member C Final tests. They do not establish that all other Final features have been tested.

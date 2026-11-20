@@ -36,6 +36,9 @@ private:
     int countHelper(DepartmentNode* node) const;
 
     int heightHelper(DepartmentNode* node) const;
+    
+    int leafCountHelper(DepartmentNode* node) const;
+
 
 public:
     // Constructor
@@ -78,8 +81,9 @@ public:
     void levelOrderTraversal() const;
 
     int countDepartments() const;
+    int countLeaves() const;
     int treeHeight() const;
-
+    void displayStatistics() const;
 
 };
 #endif

@@ -272,8 +272,8 @@ void DepartmentTree::postorderHelper(DepartmentNode* node) const {
     }
 
 
- // Calculate height recursively
-int DepartmentTree::heightHelper(DepartmentNode* node) const {
+    // Calculate height recursively
+    int DepartmentTree::heightHelper(DepartmentNode* node) const {
     if (node == nullptr) {
         return -1;
     }
@@ -295,6 +295,48 @@ int DepartmentTree::heightHelper(DepartmentNode* node) const {
 int DepartmentTree::treeHeight() const {
     return heightHelper(root);
 }
+
+// Count leaf departments recursively
+int DepartmentTree:: leafCountHelper(DepartmentNode* node) const {
+    if (node == nullptr) {
+        return 0;
+    }
+
+    // A leaf department has no children
+    if (node->children.empty()) {
+        return 1;
+    }
+    int leaves = 0;
+
+    // Count leaves in evenry child subtree
+    for (DepartmentNode* child : node->children) {
+        leaves += leafCountHelper(child);
+    }
+    return leaves;
+}
+// Return total number of leaf departments
+int DepartmentTree::countLeaves() const {
+    return leafCountHelper(root);
+}
+
+// Display all department statistics
+void DepartmentTree::displayStatistics() const {
+    if (isEmpty()) {
+        cout << "No departments are loaded." << endl;
+        cout << "Total departments: 0" << endl;
+        cout << "Leaf departments: 0" << endl;
+        cout << "Tree height: N/A" << endl;
+        return;
+    }
+        cout << "Total departments: "
+             << countDepartments() << endl;
+        cout << "Leaf departments: "
+             << countLeaves() << endl;
+        cout << "Tree height: "
+             << treeHeight() << endl;
+}
+
+
 
     
  

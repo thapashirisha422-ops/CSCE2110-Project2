@@ -2,7 +2,7 @@
 // Smart Campus Navigation and Facility Analytics System
 //File: main.cpp
 //Author: Leah, Shirisha, Aanchal
-//Purpose: Milestone 1 menu
+//Purpose: Final Project Menu
 
 #include <iostream>
 #include <string>
@@ -35,19 +35,29 @@ string trimInput(string str){
 }
 
 void printMenu(){
+   
   cout << "\n--- Smart Campus Navigation System ---\n";
   cout << "1. View all facilities\n";
   cout << "2. Search facility by ID\n";
-  cout << "3. View campus graph\n";
-  cout << "4. Display graph counts and degrees\n";
-  cout << "5. Find reachable buildings(BFS)\n";
-  cout << "6. Add department\n";
-  cout << "7. Search department\n";
-  cout << "8. Display department hierarchy\n";
-  cout << "9. Run preorder traversal\n";
-  cout << "10. Exit\n";
+  cout << "3. Search facility by name\n";
+  cout << "4. Search facility by category\n";
+  cout << "5. View campus graph\n";
+  cout << "6. Display graph counts and degrees\n";
+  cout << "7. Find reachable buildings (BFS)\n";
+  cout << "8. Find shortest path (BFS)\n";
+  cout << "9. Add department\n";
+  cout << "10. Search department\n";
+  cout << "11. Display department hierarchy\n";
+  cout << "12. Preorder traversal\n";
+  cout << "13. Postorder traversal\n";
+  cout << "14. Level-order traversal\n";
+  cout << "15. Department statistics\n";
+  cout << "16. Facility category report\n";
+  cout << "17. Graph connectivity report\n";
+  cout << "18. Exit\n";
   cout << "Enter choice: ";
 }
+
 
 int main(int argc, char* argv[]){
   cout << "Smart Campus Navigation System" << endl;
@@ -77,7 +87,7 @@ int main(int argc, char* argv[]){
     string trimmed = trimInput(userInput);
 
     if(trimmed == ""){
-      cout << "Error: Please enter a number from 1 to 10(or 0 to exit).\n";
+      cout << "Error: Please enter a number from 1 to 18(or 0 to exit).\n";
       continue;
     }
     bool allDigits = true;
@@ -143,13 +153,13 @@ int main(int argc, char* argv[]){
   }
 }
 
-    else if (choice == 3){
+    else if (choice == 5){
       campusGraph.displayGraph();
     }
-    else if(choice == 4){
+    else if(choice == 6){
       campusGraph.displayCountsAndDegrees();
     }
-    else if (choice == 5){
+    else if (choice == 7){
       cout << "Enter starting building name: ";
       string buildingName;
       getline(cin, buildingName);
@@ -159,7 +169,7 @@ int main(int argc, char* argv[]){
         campusGraph.findReachableBuildings(buildingName);
       }
     }
-    else if(choice == 6){
+    else if(choice == 9){
       cout << "Enter department name: ";
       string departmentName;
       getline(cin, departmentName);
@@ -186,7 +196,7 @@ else {
         }
       }
     }
-    else if(choice == 7){
+    else if(choice == 10){
       cout << "Enter department name: ";
       string departmentName;
       getline(cin, departmentName);
@@ -196,25 +206,30 @@ else {
         departmentTree.searchDepartment(trimInput(departmentName));
       }
     }
-    else if(choice == 8){
+    else if(choice == 11){
       departmentTree.displayHierarchy();
     }
-    else if(choice == 9){
+    else if(choice == 12){
       departmentTree.preorderTraversal();
     }
-    else if (choice == 10 || choice == 0){
-      cout << "Exiting program.\n";
-      running = false;
+    
+    else if(choice == 13){
+        departmentTree.postorderTraversal();
+    }
+    else if(choice == 14){
+        departmentTree.levelOrderTraversal();
+    }
+    else if(choice == 15){
+        departmentTree.displayStatistics();
+    }
+    else if(choice == 18 || choice == 0){
+        cout << "Exiting program.\n";
+        running = false;
     }
     else{
-      cout << "Error: Option " << choice << " is not an option. Please enter a number from 1 to 10(or 0 to exit).\n";
+        cout << "Error: Invalid option.\n";
     }
-  }
+  } // End while loop
 
   return 0;
-}
-      
-      
-        
-
-
+} // End main
