@@ -25,7 +25,7 @@ The system uses:
 - Shirisha Thapa
 
 ## Current Status
-Milestone 1 features have been implemented and tested.
+Final features have been implemented and tested.
 
 ## Build and Run
 Open a Linux terminal in the main project folder.
@@ -42,9 +42,9 @@ To run the additional collision test:
 `./campus testdata/collision`
 
 ## Program Menu
-Options 1 through 9 provide the Milestone 1 features.
+Options 1 through 18 provide the final features.
 
-Option 10 exits the program.
+Option 18 exits the program.
 
 ## GitHub Repository
 https://github.com/thapashirisha422-ops/CSCE2110-Project2.git
