@@ -44,10 +44,12 @@ public:
   bool hasBuilding(const string& buildingName) const;
   string getCanonicalBuildingName(const string& name) const;
 
-  //menu options 3,4,5
+  //menu options 5,6,7,8
   void displayGraph() const;
   void displayCountsAndDegrees() const;
   void findReachableBuildings(const string& startBuildingName) const;
+  void findShortestPath(const string& startBuildingName, const string& endBuildingName) const;
+  void displayConnectivityReport() const;
 
   //number of buildings and connections 
   int getBuildingCount() const;
