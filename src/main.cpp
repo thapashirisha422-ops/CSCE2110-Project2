@@ -193,6 +193,24 @@ void printMenu(){
         campusGraph.findReachableBuildings(buildingName);
       }
     }
+    else if(choice == 8){
+      cout << "Enter starting building name: ";
+      string startBuilding;
+      getline(cin, startBuilding);
+      if(trimInput(startBuilding) == ""){
+        cout << "Error: Starting building name cannot be blank.\n";
+      }else{
+        cout << "Enter destination building name: ";
+        string endBuilding;
+        getline(cin, endBuilding);
+        if(trimInput(endBuilding) == ""){
+          cout << "Error: Destination building name cannot be blank.\n";
+        }else{
+          campusGraph.findShortestPath(startBuilding, endBuilding);
+        }
+      }
+    }
+        
     else if(choice == 9){
       cout << "Enter department name: ";
       string departmentName;
@@ -248,8 +266,8 @@ else {
     else if(choice == 16){
       facilityTable.displayCategoryReport();
     }
-    else if(choice == 8 || choice == 17){
-      cout << "This option is pending team integration.\n";
+    else if(choice == 17){
+      campusGraph.displayConnectivityReport();
     }
     else if(choice == 18 || choice == 0){
       cout << "Exiting program.\n";
