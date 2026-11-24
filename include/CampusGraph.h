@@ -44,7 +44,7 @@ public:
   bool hasBuilding(const string& buildingName) const;
   string getCanonicalBuildingName(const string& name) const;
 
-  //menu options 5,6,7,8
+  //menu options 5,6,7,8,17
   void displayGraph() const;
   void displayCountsAndDegrees() const;
   void findReachableBuildings(const string& startBuildingName) const;
