@@ -1,6 +1,6 @@
 //File : CampusGraph.cpp
 //Author: leah rodriguez(member b)
-//purpose: implement CampusGraph class for milestone 1
+//purpose: implement CampusGraph class for final project
 
 #include "../include/CampusGraph.h"
 #include <iostream>
@@ -260,7 +260,7 @@ LoadStats CampusGraph::loadConnections(string filepath){
   return stats;
 }
 
-//menu option 3(prints every building and all buildings connected)
+//menu option 5(prints every building and all buildings connected)
 void CampusGraph::displayGraph() const{
   if(buildings.empty()){
     cout << "No buildings are loaded in the campus graph.\n";
@@ -287,7 +287,7 @@ void CampusGraph::displayGraph() const{
   }
 }
 
-//menu option 4, how many connections
+//menu option 6, how many connections
 void CampusGraph::displayCountsAndDegrees() const{
   if(buildings.empty()){
     cout << "No buildings are loaded in the campus graph.\n";
@@ -302,7 +302,7 @@ void CampusGraph::displayCountsAndDegrees() const{
   cout << "Total buildings: " << buildings.size() << ". Total connections: " << totalConnections << ".\n";
 }
 
-//menu option 5, use BFS to find buildings walk from start
+//menu option 7, use BFS to find buildings walk from start
 void CampusGraph::findReachableBuildings(const string& startBuildingName) const{
     if(buildings.empty()){
       cout << "No buildings are loaded in the campus graph.\n";
@@ -353,6 +353,153 @@ void CampusGraph::findReachableBuildings(const string& startBuildingName) const{
     }
 
     cout << "Reachable: " << reachableCount << " of " << numBuildings << " buildings\n";
+}
+//menu option 8,bfs
+void CampusGraph::findShortestPath(const string& startBuildingName, const string& endBuildingName) const{
+  if(buildings.empty()){
+    cout << "No buildings are loaded in the campus graph.\n";
+    return;
+  }
+  string cleanStart = trim(startBuildingName);
+  string cleanEnd = trim(endBuildingName);
+  if(cleanStart == "" || cleanEnd == ""){
+    cout << "Error: Building name cannot be blank.\n";
+    return;
+  }
+  int startIdx = findBuildingIndex(cleanStart);
+  if(startIdx == -1){
+    cout << "Error: Unknown building '" << cleanStart << "'.\n";
+    return;
+  }
+  int endIdx = findBuildingIndex(cleanEnd);
+  if(endIdx == -1){
+    cout << "Error: Unknown building '" << cleanEnd << "'.\n";
+    return;
+  }
+  int numBuildings = (int)buildings.size();
+  vector<bool> visited(numBuildings, false);
+  vector<int> parent(numBuildings, -1);
+  queue<int> bfsQueue;
+
+  visited[startIdx] = true;
+  bfsQueue.push(startIdx);
+
+  while(!bfsQueue.empty()){
+    int current = bfsQueue.front();
+    bfsQueue.pop();
+
+    if(current == endIdx){
+      break;
+    }
+
+    for(int i = 0; i < (int)buildings[current].neighbors.size(); i++){
+      int nextNeighbor = buildings[current].neighbors[i];
+
+      if(!visited[nextNeighbor]){
+        visited[nextNeighbor] = true;
+        parent[nextNeighbor] = current;
+        bfsQueue.push(nextNeighbor);
+      }
+    }
+  }
+  if(!visited[endIdx]){
+    cout << "No route exists between " << buildings[startIdx].name << " and " << buildings[endIdx].name << ".\n";
+    return;
+  }
+  vector<int> reversePath;
+  int step = endIdx;
+  while(step != -1){
+    reversePath.push_back(step);
+    step = parent[step];
+  }
+  cout << "\nShortest path from " << buildings[startIdx].name << " to " << buildings[endIdx].name << ":\n";
+  for(int i = (int)reversePath.size() -1; i >= 0; i--){
+    cout << buildings[reversePath[i]].name << "\n";
+  }
+  int connectionCount = (int)reversePath.size() -1;
+  cout << "Total connections: " << connectionCount << "\n";
+}
+
+//menu option 17
+void CampusGraph::displayConnectivityReport() const{
+  cout << "\n--- Graph Connectivity Report ---\n";
+
+  if(buildings.empty()){
+    cout << "No buildings are loaded in the campus graph.\n";
+    cout << "Total buildings: 0\n";
+    cout << "Total connections: 0\n";
+    cout << "Highest degree: None (0)\n";
+    cout << "Isolated buildings: None\n";
+    cout << "Connected components: 0\n";
+    return;
+  }
+
+  int numBuildings = (int)buildings.size();
+  cout << "Total buildings: " << numBuildings << "\n";
+  cout << "Total connections: " << totalConnections << "\n";
+
+  int maxDegree = 0;
+  for(int i = 0; i < numBuildings; i++){
+    int deg = (int)buildings[i].neighbors.size();
+    if(deg > maxDegree){
+      maxDegree = deg;
+    }
+  }
+
+  cout << "Highest degree (" << maxDegree << "): ";
+  bool firstMax = true;
+  for(int i = 0; i < numBuildings; i++){
+    if((int)buildings[i].neighbors.size() == maxDegree){
+      if(!firstMax){
+        cout << ", ";
+      }
+      cout << buildings[i].name;
+      firstMax = false;
+    }
+  }
+  cout << "\n";
+
+  cout << "Isolated buildings: ";
+  bool foundIsolated = false;
+  for(int i = 0; i < numBuildings; i++){
+    if(buildings[i].neighbors.empty()){
+      if(foundIsolated){
+        cout << ", ";
+      }
+      cout << buildings[i].name;
+      foundIsolated = true;
+    }
+  }
+  if(!foundIsolated){
+    cout << "None";
+  }
+  cout << "\n";
+
+  vector<bool> visited(numBuildings, false);
+  int componentCount = 0;
+
+  for(int i = 0; i < numBuildings; i++){
+    if(!visited[i]){
+      componentCount++;
+      queue<int> bfsQueue;
+      visited[i] = true;
+      bfsQueue.push(i);
+
+      while(!bfsQueue.empty()){
+        int current = bfsQueue.front();
+        bfsQueue.pop();
+
+        for(int j = 0; j < (int)buildings[current].neighbors.size(); j++){
+          int nextNeighbor = buildings[current].neighbors[j];
+          if(!visited[nextNeighbor]){
+            visited[nextNeighbor] = true;
+            bfsQueue.push(nextNeighbor);
+          }
+        }
+      }
+    }
+  }
+  cout << "Connected components: " << componentCount << "\n";
 }
 
 // how many total buildings in graph(returns)
