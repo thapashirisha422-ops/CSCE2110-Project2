@@ -619,3 +619,132 @@ Passed: 41
 Failed: 0
 
 Note: These totals cover the documented Milestone 1 tests and Member C Final tests. They do not establish that all other Final features have been tested.
+
+FINAL SUBMISSION - MEMBER A FACILITY TEST RESULTS
+
+Test 42: Facility Name Search
+
+Description: Search for facilities with the same name.
+
+Input: Option 3, Room 101.
+
+Expected: F005 and F007 are displayed with 2 matches.
+
+Actual: Both facilities were displayed in file order. Matches: 2.
+
+Result: PASS
+
+---
+
+Test 43: Case-Insensitive Name Search
+
+Description: Test capitalization, outer spaces, and no matches.
+
+Input: Option 3, rOoM 101 and Room.
+
+Expected: 2 matches for rOoM 101 and 0 for Room.
+
+Actual: Both results were correct. The program displayed a no-match message for Room.
+
+Result: PASS
+
+---
+
+Test 44: Facility Category Search
+
+Description: Test category matching with different capitalization.
+
+Input: Option 4, Computer Lab, COMPUTER LAB, and Unknown.
+
+Expected: 2 matches, 2 matches, and 0 matches.
+
+Actual: Both Computer Lab searches returned F004 and F006. Unknown returned no matches.
+
+Result: PASS
+
+---
+
+Test 45: Facility Category Report
+
+Description: Check category counts and percentages using the original data.
+
+Input: Option 16.
+
+Expected: 10 total facilities. Library 2, Tutoring Center 1, Student Services Office 1, Computer Lab 2, Classroom 3, and Recreation 1.
+
+Actual: All counts and percentages were correct. Total: 10, 100.0%.
+
+Result: PASS
+
+---
+
+Test 46: Custom Facility Data and Category Report
+
+Description: Test invalid records, mixed capitalization, and category grouping.
+
+Input: ./campus testdata/facility_final, then option 16.
+
+Expected: 5 accepted, 3 rejected. Computer Lab 3 (60.0%), Library 1 (20.0%), Office 1 (20.0%).
+
+Actual: 5 accepted, 3 rejected, 1 collision. All category counts and percentages were correct.
+
+Result: PASS
+
+---
+
+Test 47: Custom Facility Searches
+
+Description: Test exact names, internal spaces, lowercase categories, and ID normalization.
+
+Input: Room #5, Room  #5, computer lab, and f014.
+
+Expected: Name searches return 2 and 1 matches. Category search returns 3 matches. ID search finds F014.
+
+Actual: All searches returned the expected facilities and counts.
+
+Result: PASS
+
+---
+
+Test 48: Facility ID and Blank Input Validation
+
+Description: Test lowercase IDs, invalid IDs, missing facilities, and blank searches.
+
+Input: f004, F999, 004, blank facility name, and blank category.
+
+Expected: f004 finds F004. F999 is not found. 004 displays an invalid format error. Blank searches display error messages.
+
+Actual: All searches and validation messages worked correctly.
+
+Result: PASS
+
+---
+
+Test 49: Empty and Missing Files
+
+Description: Check that empty and missing files are handled without crashing.
+
+Input: ./campus testdata/empty_facilities and ./campus testdata/nonexistent, option 16.
+
+Expected: No facilities available. Total facilities: 0.
+
+Actual: Both cases displayed the correct empty report. Missing files produced error messages without crashing.
+
+Result: PASS
+
+---
+
+Test 50: Hash Collision Regression
+
+Description: Check ID lookup and collision handling using the collision test data.
+
+Input: ./campus testdata/collision, option 2, f014.
+
+Expected: 11 accepted, 5 rejected, 1 collision. F014 should be found.
+
+Actual: All counts matched. F014 displayed Test Lab in Library under Computer Lab.
+
+Result: PASS
+
+---
+
