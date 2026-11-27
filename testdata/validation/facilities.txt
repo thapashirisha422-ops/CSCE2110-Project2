@@ -1,0 +1,10 @@
+#FacilityID|Name|Building|Category
+ f001 | Room #5 | LIBRARY | Computer Lab
+F002|Room #5|Library|computer LAB
+f001|Later Duplicate|Library|Other
+004|Bad ID|Library|Office
+F003|Nowhere|Missing|Office
+F004||Library|Office
+F005|Missing|Library
+F006|Extra|Library|Library|Other
+F007|Room  #5|Science Building|Office

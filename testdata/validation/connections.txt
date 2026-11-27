@@ -1,0 +1,11 @@
+# Connections
+Library|Student Union
+student union | science building
+Library|Student Union
+student union|Library
+Library|LIBRARY
+Missing|Library
+Library|Missing
+Library|
+Library|Student Union|Gym
+Science Building|Engineering Building
