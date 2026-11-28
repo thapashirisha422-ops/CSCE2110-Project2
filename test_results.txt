@@ -1,7 +1,7 @@
 CSCE 2110 - Project 2
 Smart Campus Navigation and Facility Analytics System
 
-TEST RESULTS - MILESTONE 1
+TEST RESULTS - MILESTONE 1 AND FINAL SUBMISSION
 
 Test 1: Load Valid Data Files
 
@@ -91,7 +91,7 @@ Test 7: Graph Counts and Degrees
 
 Description: Display the building and connection counts.
 
-Input: Menu option 4
+Input: Menu option 6
 
 Expected: 7 buildings, 6 connections, and the correct degrees.
 
@@ -231,7 +231,7 @@ Test 17: Department Hierarchy and Preorder
 
 Description: Display the department hierarchy and run preorder traversal.
 
-Input: Menu options 8 and 9
+Input: Menu options 11 and 12
 
 Expected: Departments appear in the correct hierarchy and preorder sequence.
 
@@ -287,7 +287,7 @@ Test 21: Exit Program
 
 Description: Verify that the program exits correctly.
 
-Input: Menu option 10
+Input: Menu option 18
 
 Expected: The program exits normally.
 
@@ -603,25 +603,6 @@ Total additional tests: 12
 Passed: 12
 
 Failed: 0
-
-
-
-## COMBINED DOCUMENTATION SUMMARY
-
-Milestone 1 tests documented: 29
-
-Additional Member C Final tests: 12
-
-Additional Member A Final tests: 9
-
-Additional integrated Final tests: 18
-
-Total documented tests: 68
-
-Passed: 68
-
-Failed: 0
-
 
 FINAL SUBMISSION - MEMBER A FACILITY TEST RESULTS
 
@@ -1022,4 +1003,40 @@ ADDITIONAL TEST SUMMARY
 
 Tests 51-68: 18
 Passed: 18
+Failed: 0
+
+
+MEMORY CHECK - FINAL SUBMISSION
+
+Testing Environment: Local Linux, GCC C++17
+
+Compiler Options: -fsanitize=address,undefined -fno-omit-frame-pointer
+
+Test Data:
+- data/
+- testdata/validation
+- testdata/all_empty
+- testdata/many_facilities
+
+Expected: No memory errors or undefined behavior reported.
+
+Actual: No AddressSanitizer or UndefinedBehaviorSanitizer errors were reported during these local test runs.
+
+Result: PASS (Local testing only)
+
+
+## COMBINED DOCUMENTATION SUMMARY
+
+Milestone 1 tests documented: 29
+
+Additional Member C Final tests: 12
+
+Additional Member A Final tests: 9
+
+Additional integrated Final tests: 18
+
+Total documented tests: 68
+
+Passed: 68
+
 Failed: 0
