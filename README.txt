@@ -12,6 +12,30 @@ The system uses:
 - An undirected graph and Breadth-First Search (BFS) for campus navigation.
 - A general tree to organize academic departments.
 
+MODULE OVERVIEW
+
+Facility Module:
+FacilityHashTable and FacilityLoader manage facility records.
+The program supports ID, name, and category searches.
+Facility IDs are stored in a custom hash table with a default capacity of 17 buckets.
+The hash function starts at 0 and calculates:
+hashValue = (hashValue * 31 + character ASCII value) % capacity
+The program uses separate chaining with vectors to handle collisions.
+A collision is counted when a valid facility is inserted into a nonempty bucket.
+Name and category searches scan the accepted facility records.
+
+Campus Graph Module:
+CampusGraph stores buildings and connections using an adjacency list.
+Connections are undirected, and neighbor insertion order is preserved.
+BFS uses a queue to find reachable buildings and shortest paths.
+The graph also provides building statistics and a connectivity report.
+
+Department Tree Module:
+DepartmentTree stores departments using a general tree.
+It supports adding, searching, and displaying departments.
+It includes preorder, postorder, and level-order traversals.
+The statistics report shows total departments, leaves, and tree height.
+
 PROJECT STRUCTURE
 
 src/                  - C++ source files
@@ -22,6 +46,7 @@ README.txt            - Build and execution instructions
 design_document.txt   - Data structure design and implementation details
 test_results.txt      - Testing documentation
 CONTRIBUTIONS.txt     - Team member contributions
+.gitignore            - Excludes compiled files and editor files
 
 TEAM MEMBERS
 
@@ -33,10 +58,10 @@ BUILD AND RUN
 Open a Linux terminal in the main project directory.
 
 Compile the program using:
-g++ -std=c++17 -Iinclude src/*.cpp -o project2
+g++ -std=c++17 -Iinclude src/*.cpp -o campus
 
 Run the program using:
-./project2
+./campus
 
 The program loads four files from the data/ directory by default:
 - buildings.txt
@@ -45,7 +70,7 @@ The program loads four files from the data/ directory by default:
 - departments.txt
 
 To run with another dataset, use:
-./project2 testdata/collision
+./campus testdata/collision
 
 PROGRAM MENU
 1. View all facilities
