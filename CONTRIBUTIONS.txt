@@ -10,26 +10,41 @@ TEAM MEMBERS
 
 INDIVIDUAL CONTRIBUTIONS
 
+
 Member A: Shirisha Thapa
-- Implemented the facility hash table and facility loader.
-- Worked on facility ID validation, duplicate handling, and searching.
-- Helped with menu integration, testing, and debugging.
+- Implemented the custom facility hash table and facility loader.
+- Added facility name search and category search.
+- Implemented the facility category report with counts and percentages.
+- Worked on facility ID validation, duplicate handling, and collision testing.
+- Integrated facility features into the Final menu.
+- Tested facility searches, invalid inputs, empty files, and custom datasets.
+
+Individual Reflection:
+I worked on the facility hash table and added the name search, category search, and category report for the Final submission. I reviewed how the facility functions connected to the main menu and tested the existing ID search after making changes. One issue I addressed was handling categories with different capitalization, so I updated the code to preserve the spelling of the first accepted category. I also tested duplicate facility names, invalid IDs, empty files, and hash collisions.
 
 Member B: Leah Rodriguez
-- Implemented the campus graph.
-- Worked on loading buildings and connections.
-- Implemented BFS, graph display, and building statistics.
+
+- Implemented CampusGraph using an adjacency list.
+- Developed building and connection loading with input validation.
+- Implemented BFS reachability and shortest-path searching.
+- Added graph display, building counts, and degrees.
+- Implemented the graph connectivity report.
+- Handled duplicate connections, unknown buildings, isolated buildings, and disconnected routes.
+
+Individual Reflection:
+I worked on the CampusGraph module to store buildings and their connections. I implemented BFS to find reachable buildings and shortest paths between locations. For the Final submission, I added the connectivity report to display building degrees, isolated buildings, and connected components.
 
 Member C: Aanchal Khadka
-- Implemented the Department Tree using a general tree structure.
-- Developed the Department Loader to read and validate department records from text files.
-- Implemented adding departments, searching departments, and displaying the department hierarchy.
-- Implemented preorder, postorder, and level-order traversals.
-- Added department statistics, including total departments, leaf departments, and tree height.
-- Handled invalid department names, duplicate departments, and nonexistent parent departments.
-- Tested the Department Tree with valid data, invalid inputs, an empty tree, and a root-only tree.
-- Integrated and tested the Department Tree features in the Final menu.
 
+- Implemented DepartmentTree and DepartmentLoader.
+- Developed department insertion, searching, and hierarchy display.
+- Implemented preorder, postorder, and level-order traversals.
+- Added department statistics, including department count, leaf count, and tree height.
+- Handled duplicate department names and invalid parent departments.
+- Added tree memory cleanup and tested empty-tree and root-only cases.
+
+Individual Reflection:
+I worked on the DepartmentTree and DepartmentLoader modules to organize and load department records. I implemented department insertion, searching, and hierarchy display. For the Final submission, I worked on postorder and level-order traversals and added department statistics. I also tested empty trees, root-only trees, duplicate departments, and invalid parent names.
 
 SHARED RESPONSIBILITIES
 - Integrating the different modules into the main program.
