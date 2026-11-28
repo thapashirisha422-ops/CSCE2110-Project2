@@ -9,11 +9,11 @@ This project is a C++ console application that uses a custom hash table, campus 
 
 2. FACILITY DATABASE AND HASH TABLE
 
-The system stores facilities in a custom hash table and supports searching by facility ID.
+The system stores facilities in a custom hash table and supports searching by facility ID, complete name, and category.
 
-Hash function: The facility ID is converted to uppercase. Starting with 0, the hash value is calculated using (hashValue * 31 + ASCII value of character) % 17 for each character.
+Hash function: The facility ID is converted to uppercase. Starting with 0, the hash value is calculated using (hashValue * 31 + ASCII value of character) % capacity for each character.
 
-Hash table capacity: 17 buckets. A prime number is used for the table size to help distribute facilities across buckets.
+Hash table capacity: The default capacity is 17 buckets. A prime number is used to help distribute facilities across buckets.
 
 Collision strategy: Separate chaining using vectors. Facilities that hash to the same bucket are stored together.
 
@@ -33,7 +33,7 @@ Breadth-First Search (BFS) uses a queue and a visited structure to find reachabl
 
 The system uses a general tree to represent academic departments.
 
-Each department has a name, a parent, and a list of children. The tree starts with one root department. It supports adding departments, searching by name, displaying the hierarchy, and preorder traversal. Duplicate department names are not allowed.
+Each department has a name, a parent, and a list of children. The tree starts with one root department. It supports adding departments, searching by name, displaying the hierarchy, preorder, postorder, and level-order traversals, and department statistics. Duplicate department names are not allowed.
 
 5. CODE ORGANIZATION
 
@@ -78,3 +78,21 @@ For the original dataset, the Department Tree contained 7 departments, 4 leaf de
 After adding Robotics under College of Engineering, the tree contained 8 departments, 5 leaf departments, and a height of 2.
 
 The complete testing results are documented in test_results.txt.
+
+
+8. FINAL PROJECT FEATURES
+
+Facility Searches and Report:
+Facility name and category searches use a loop to check the accepted records. The searches ignore capitalization and extra spaces at the beginning and end of the input. The category report counts facilities in each category and calculates their percentages.
+
+Shortest Path:
+The campus graph uses BFS with a queue and a parent vector to find the shortest path between two buildings. The parent vector helps reconstruct the path. The program displays each building in the path and the total number of connections. It also handles unknown buildings and disconnected routes.
+
+Graph Connectivity Report:
+The report displays the total buildings, connections, buildings with the highest degree, isolated buildings, and connected components. BFS is used to count connected components.
+
+Department Tree:
+The final version includes postorder and level-order traversal. Postorder visits children before their parent. Level-order uses a queue to visit departments one level at a time. The statistics report displays the total departments, leaf departments, and tree height.
+
+Memory Management:
+The DepartmentTree destructor deletes dynamically allocated tree nodes when the program finishes.

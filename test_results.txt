@@ -604,7 +604,7 @@ Passed: 12
 
 Failed: 0
 
-All tested Member C Department Tree features passed, including traversals, statistics, department insertion, searching, invalid inputs, and empty/root-only tree cases.
+
 
 ## COMBINED DOCUMENTATION SUMMARY
 
@@ -612,10 +612,413 @@ Milestone 1 tests documented: 29
 
 Additional Member C Final tests: 12
 
-Total documented tests: 41
+Additional Member A Final tests: 9
 
-Passed: 41
+Additional integrated Final tests: 18
+
+Total documented tests: 68
+
+Passed: 68
 
 Failed: 0
 
-Note: These totals cover the documented Milestone 1 tests and Member C Final tests. They do not establish that all other Final features have been tested.
+
+FINAL SUBMISSION - MEMBER A FACILITY TEST RESULTS
+
+Test 42: Facility Name Search
+
+Description: Search for facilities with the same name.
+
+Input: Option 3, Room 101.
+
+Expected: F005 and F007 are displayed with 2 matches.
+
+Actual: Both facilities were displayed in file order. Matches: 2.
+
+Result: PASS
+
+---
+
+Test 43: Case-Insensitive Name Search
+
+Description: Test capitalization, outer spaces, and no matches.
+
+Input: Option 3, rOoM 101 and Room.
+
+Expected: 2 matches for rOoM 101 and 0 for Room.
+
+Actual: Both results were correct. The program displayed a no-match message for Room.
+
+Result: PASS
+
+---
+
+Test 44: Facility Category Search
+
+Description: Test category matching with different capitalization.
+
+Input: Option 4, Computer Lab, COMPUTER LAB, and Unknown.
+
+Expected: 2 matches, 2 matches, and 0 matches.
+
+Actual: Both Computer Lab searches returned F004 and F006. Unknown returned no matches.
+
+Result: PASS
+
+---
+
+Test 45: Facility Category Report
+
+Description: Check category counts and percentages using the original data.
+
+Input: Option 16.
+
+Expected: 10 total facilities. Library 2, Tutoring Center 1, Student Services Office 1, Computer Lab 2, Classroom 3, and Recreation 1.
+
+Actual: All counts and percentages were correct. Total: 10, 100.0%.
+
+Result: PASS
+
+---
+
+Test 46: Custom Facility Data and Category Report
+
+Description: Test invalid records, mixed capitalization, and category grouping.
+
+Input: ./campus testdata/facility_final, then option 16.
+
+Expected: 5 accepted, 3 rejected. Computer Lab 3 (60.0%), Library 1 (20.0%), Office 1 (20.0%).
+
+Actual: 5 accepted, 3 rejected, 1 collision. All category counts and percentages were correct.
+
+Result: PASS
+
+---
+
+Test 47: Custom Facility Searches
+
+Description: Test exact names, internal spaces, lowercase categories, and ID normalization.
+
+Input: Room #5, Room  #5, computer lab, and f014.
+
+Expected: Name searches return 2 and 1 matches. Category search returns 3 matches. ID search finds F014.
+
+Actual: All searches returned the expected facilities and counts.
+
+Result: PASS
+
+---
+
+Test 48: Facility ID and Blank Input Validation
+
+Description: Test lowercase IDs, invalid IDs, missing facilities, and blank searches.
+
+Input: f004, F999, 004, blank facility name, and blank category.
+
+Expected: f004 finds F004. F999 is not found. 004 displays an invalid format error. Blank searches display error messages.
+
+Actual: All searches and validation messages worked correctly.
+
+Result: PASS
+
+---
+
+Test 49: Empty and Missing Files
+
+Description: Check that empty and missing files are handled without crashing.
+
+Input: ./campus testdata/empty_facilities and ./campus testdata/nonexistent, option 16.
+
+Expected: No facilities available. Total facilities: 0.
+
+Actual: Both cases displayed the correct empty report. Missing files produced error messages without crashing.
+
+Result: PASS
+
+---
+
+Test 50: Hash Collision Regression
+
+Description: Check ID lookup and collision handling using the collision test data.
+
+Input: ./campus testdata/collision, option 2, f014.
+
+Expected: 11 accepted, 5 rejected, 1 collision. F014 should be found.
+
+Actual: All counts matched. F014 displayed Test Lab in Library under Computer Lab.
+
+Result: PASS
+
+---
+FINAL PROJECT ADDITIONAL VERIFIED TESTS
+Testing Environment: Local Linux, GCC C++17
+
+Test 51: Shortest Path - Basic
+
+Description: Find the shortest route from Library to Engineering Building.
+
+Input: Option 8, Library, Engineering Building.
+
+Expected: Library -> Student Union -> Science Building -> Engineering Building. Total connections: 3.
+
+Actual: Correct path displayed with 3 connections.
+
+Result: PASS
+
+---
+
+Test 52: Shortest Path - Equal Routes
+
+Description: Check that BFS follows neighbor insertion order.
+
+Input: Option 8, Library, Gym.
+
+Expected: Library -> Student Union -> Gym. Total connections: 2.
+
+Actual: The program selected Student Union first and displayed 2 connections.
+
+Result: PASS
+
+---
+
+Test 53: Shortest Path - Same Building
+
+Description: Test when starting and destination buildings are identical.
+
+Input: Option 8, Library, Library.
+
+Expected: Library displayed with 0 connections.
+
+Actual: Library displayed with 0 connections.
+
+Result: PASS
+
+---
+
+Test 54: Unknown Starting Building
+
+Description: Test an invalid starting building.
+
+Input: Option 8, Nowhere, Library.
+
+Expected: Error identifying unknown building Nowhere.
+
+Actual: Error: Unknown building 'Nowhere'.
+
+Result: PASS
+
+---
+
+Test 55: Unknown Destination
+
+Description: Test an invalid destination building.
+
+Input: Option 8, Library, Nowhere.
+
+Expected: Error identifying unknown building Nowhere.
+
+Actual: Error: Unknown building 'Nowhere'.
+
+Result: PASS
+
+---
+
+Test 56: Disconnected Buildings
+
+Description: Find a route between buildings that are not connected.
+
+Input: Option 8, Library, Observatory.
+
+Expected: No route exists between Library and Observatory.
+
+Actual: No route exists between Library and Observatory.
+
+Result: PASS
+
+---
+
+Test 57: Case-Insensitive Shortest Path
+
+Description: Search building names with different capitalization and outer spaces.
+
+Input: Option 8, " LIBRARY ", gym.
+
+Expected: Library -> Student Union -> Gym. Total connections: 2.
+
+Actual: Correct shortest path displayed with 2 connections.
+
+Result: PASS
+
+---
+
+Test 58: Custom Graph - Equal Shortest Paths
+
+Description: Check the shortest path when multiple routes have equal lengths.
+
+Input: ./campus testdata/tie_graph
+Option 8, A, D.
+
+Expected: A -> B -> D. Total connections: 2.
+
+Actual: A -> B -> D. Total connections: 2.
+
+Result: PASS
+
+---
+
+Test 59: Graph Connectivity Report
+
+Description: Check building counts, degrees, isolated buildings, and connected components.
+
+Input: Option 17 using original data.
+
+Expected: 7 buildings, 6 connections, highest degree 3 (Student Union), isolated building Observatory, and 2 connected components.
+
+Actual: All counts and building names were correct.
+
+Result: PASS
+
+---
+
+Test 60: Multiple Buildings With Highest Degree
+
+Description: Check that all buildings tied for the highest degree are displayed.
+
+Input: ./campus testdata/tie_graph
+Option 17.
+
+Expected: A, B, C, D have highest degree 2. E is isolated. Connected components: 2.
+
+Actual: All four buildings were displayed correctly. E was isolated and 2 components were reported.
+
+Result: PASS
+
+---
+
+Test 61: Multiple Connected Components
+
+Description: Test a graph containing separate connected groups.
+
+Input: ./campus testdata/components
+Option 17.
+
+Expected: 5 buildings, 2 connections, highest degree 1 for North, South, East, West, isolated building Island, and 3 components.
+
+Actual: All counts and names were correct.
+
+Result: PASS
+
+---
+
+Test 62: All Buildings Isolated
+
+Description: Test connectivity when no buildings have connections.
+
+Input: ./campus testdata/all_isolated
+Option 17.
+
+Expected: A, B, C each have degree 0. All are isolated. Connected components: 3.
+
+Actual: All three buildings were displayed as isolated with 3 components.
+
+Result: PASS
+
+---
+
+Test 63: Empty Data Files
+
+Description: Test facility, graph, and department operations with empty files.
+
+Input: ./campus testdata/all_empty
+Options 1, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, and 17.
+
+Expected: Zero accepted records, zero facilities, zero buildings, zero connected components, and N/A tree height.
+
+Actual: All empty-data messages and counts were correct. No crashes occurred.
+
+Result: PASS
+
+---
+
+Test 64: File Validation and Windows Line Endings
+
+Description: Test malformed records, duplicate entries, and Windows line endings.
+
+Input: ./campus testdata/validation
+
+Expected: 7 valid buildings, 3 valid connections, 3 valid facilities, and 3 valid departments. Invalid records should be rejected.
+
+Actual: All accepted counts matched. Invalid records were rejected with warnings.
+
+Result: PASS
+
+---
+
+Test 65: BFS Reachability
+
+Description: Test BFS visiting order and distances.
+
+Input: Option 7, Library.
+
+Expected:
+Library - distance 0
+Student Union - distance 1
+Business Building - distance 1
+Science Building - distance 2
+Gym - distance 2
+Engineering Building - distance 3
+Reachable: 6 of 7 buildings.
+
+Actual: All buildings, distances, and reachable count were correct.
+
+Result: PASS
+
+---
+
+Test 66: BFS From Isolated Building
+
+Description: Test reachability from an isolated building.
+
+Input: Option 7, Observatory.
+
+Expected: Observatory at distance 0. Reachable: 1 of 7 buildings.
+
+Actual: Correct distance and reachable count displayed.
+
+Result: PASS
+
+---
+
+Test 67: Invalid Menu Input
+
+Description: Test nonnumeric menu input.
+
+Input: abc, then 18.
+
+Expected: Invalid input error followed by normal program exit.
+
+Actual: Error displayed, menu recovered, and program exited normally.
+
+Result: PASS
+
+---
+
+Test 68: Repeated Operations After Errors
+
+Description: Confirm the program continues after invalid inputs.
+
+Input: abc, option 2 with 004, option 2 with F004, then 18.
+
+Expected: Invalid menu input and invalid ID messages, followed by successful lookup of F004.
+
+Actual: Both errors were handled. F004 was found and the program exited normally.
+
+Result: PASS
+
+---
+
+ADDITIONAL TEST SUMMARY
+
+Tests 51-68: 18
+Passed: 18
+Failed: 0

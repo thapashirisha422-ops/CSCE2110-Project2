@@ -1,0 +1,5 @@
+North
+South
+East
+West
+Island
