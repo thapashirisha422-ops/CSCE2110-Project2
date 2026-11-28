@@ -53,5 +53,11 @@ SHARED RESPONSIBILITIES
 - Preparing project documentation.
 - Collaborating through GitHub.
 
+CODE REVIEW
+Reviewer: Shirisha Thapa (Member A)
+Code Reviewed: CampusGraph.cpp by Leah Rodriguez (Member B)
+
+I reviewed the connection validation in CampusGraph.cpp, especially lines 241–250. The code checks for self-connections and duplicate connections before adding them to the graph. I also checked that connections are added in both directions and counted only once. These parts follow the project requirements, so no changes were needed.
+
 All three members contributed to their assigned modules during Milestone 1. Additional features, integration, and testing were completed for the Final submission.
 
