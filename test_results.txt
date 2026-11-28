@@ -442,7 +442,7 @@ Result: PASS
 
 ---
 
-**Test 31: Level-Order Traversal**
+Test 31: Level-Order Traversal
 
 Description: Verify that departments are displayed level by level.
 
@@ -456,7 +456,7 @@ Result: PASS
 
 ---
 
-**Test 32: Department Statistics**
+Test 32: Department Statistics
 
 Description: Verify the total departments, leaf departments, and tree height.
 
@@ -470,7 +470,7 @@ Result: PASS
 
 ---
 
-**Test 33: Duplicate Department**
+Test 33: Duplicate Department
 
 Description: Attempt to add an existing department.
 
@@ -484,7 +484,7 @@ Result: PASS
 
 ---
 
-**Test 34: Invalid Parent Department**
+Test 34: Invalid Parent Department
 
 Description: Attempt to add a department under a nonexistent parent.
 
@@ -498,7 +498,7 @@ Result: PASS
 
 ---
 
-**Test 35: Add Valid Department**
+Test 35: Add Valid Department
 
 Description: Add Robotics under College of Engineering and verify updated statistics.
 
@@ -512,7 +512,7 @@ Result: PASS
 
 ---
 
-**Test 36: Search Newly Added Department**
+Test 36: Search Newly Added Department
 
 Description: Search for Robotics after adding it.
 
@@ -526,7 +526,7 @@ Result: PASS
 
 ---
 
-**Test 37: Search Nonexistent Department**
+Test 37: Search Nonexistent Department
 
 Description: Search for a department that does not exist.
 
@@ -540,7 +540,7 @@ Result: PASS
 
 ---
 
-**Test 38: Blank Department Name**
+Test 38: Blank Department Name
 
 Description: Attempt to add a department without entering a name.
 
@@ -554,7 +554,7 @@ Result: PASS
 
 ---
 
-**Test 39: Blank Parent Department Name**
+Test 39: Blank Parent Department Name
 
 Description: Attempt to add a department without entering a parent.
 
@@ -568,7 +568,7 @@ Result: PASS
 
 ---
 
-**Test 40: Empty Department Tree**
+Test 40: Empty Department Tree
 
 Description: Verify that statistics work when no departments are loaded.
 
@@ -582,7 +582,7 @@ Result: PASS
 
 ---
 
-**Test 41: Root-Only Department Tree**
+Test 41: Root-Only Department Tree
 
 Description: Verify statistics when the tree contains only the root department.
 
@@ -750,6 +750,7 @@ Actual: All counts matched. F014 displayed Test Lab in Library under Computer La
 Result: PASS
 
 ---
+
 FINAL PROJECT ADDITIONAL VERIFIED TESTS
 Testing Environment: Local Linux, GCC C++17
 
